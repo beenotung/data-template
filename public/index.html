@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SPA-lite Demo</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <header data-template="header.html"></header>
+      <main id="main">
+        <div data-template="article" data-bind="articles">
+          loading articles...
+        </div>
+      </main>
+      <footer data-template="footer.html"></footer>
+    </div>
+    <template data-name="article">
+      <article>
+        <input name="id" data-value="id" hidden />
+        <h2 data-text="title"></h2>
+        <p data-text="intro"></p>
+        <button data-disabled="archived" data-onclick="seeMore">
+          see more
+        </button>
+        <div data-hidden="passed">Status: active</div>
+      </article>
+    </template>
+    <script src="base.js"></script>
+    <script>
+      let articles = [
+        {
+          id: 1,
+          title: 'Hello World',
+          intro: 'This is a sample article',
+        },
+        {
+          id: 2,
+          title: 'Hello SPA',
+          intro: 'This is the second sample article',
+          archived: true,
+        },
+        {
+          id: 3,
+          title: 'Hello SPA',
+          intro: 'This is the second sample article',
+          passed: true,
+        },
+      ].map(article =>
+        Object.assign(article, {
+          seeMore: event => seeMore(event, article.id),
+        }),
+      )
+      function seeMore(event, id) {
+        console.log('see more:', { event, id })
+      }
+      scanTemplates(app, { articles })
+    </script>
+  </body>
+</html>
