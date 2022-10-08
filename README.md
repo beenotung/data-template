@@ -17,6 +17,6 @@ Lightweight and minimal dom helpers
 
 | Format         | File Size |
 | -------------- | --------- |
-| base.js        | 2.1 KB    |
-| base.min.js    | 967 B     |
-| base.min.js.gz | 573 B     |
+| base.js        | 2.0 KB    |
+| base.min.js    | 924 B     |
+| base.min.js.gz | 563 B     |

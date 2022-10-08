@@ -39,26 +39,26 @@
     return template
   }
 
-  let attrAlias = {
-    text: 'textContent',
-  }
-
   let bindTemplate = (host, template, values) => {
     let node = template.content.cloneNode(true)
     let container = doc.createElement('div')
     container.appendChild(node)
     for (let key in values) {
       let value = values[key]
-      for (let attr of ['text', 'disabled', 'hidden', 'value', 'onclick']) {
+      for (let attr of [
+        'class',
+        'text',
+        'disabled',
+        'hidden',
+        'value',
+        'onclick',
+      ]) {
         container
           .querySelectorAll(`[data-${attr}="${key}"]`)
-          .forEach(element => (element[attrAlias[attr] || attr] = value))
-      }
-      if (value) {
-        container
-          .querySelectorAll(`[data-class="${key}"]`)
           .forEach(element =>
-            element.classList.add(value == true ? key : value),
+            attr == 'class'
+              ? element.classList.add(value == true ? key : value)
+              : (element[attr == 'text' ? 'textContent' : attr] = value),
           )
       }
     }
