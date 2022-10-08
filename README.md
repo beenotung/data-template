@@ -9,7 +9,7 @@ Lightweight and minimal dom helpers
   - [x] disabled
   - [x] hidden
   - [x] value
-  - [ ] class
+  - [x] class
   - [x] onclick
 - [x] fetch and cache html template
 

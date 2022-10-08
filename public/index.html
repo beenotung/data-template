@@ -21,7 +21,7 @@
       <article>
         <input name="id" data-value="id" hidden />
         <h2 data-text="title"></h2>
-        <p data-text="intro"></p>
+        <p data-text="intro" data-class="highlight"></p>
         <button data-disabled="archived" data-onclick="seeMore">
           see more
         </button>
@@ -45,8 +45,9 @@
         {
           id: 3,
           title: 'Hello SPA',
-          intro: 'This is the second sample article',
+          intro: 'This is text should be bolded',
           passed: true,
+          highlight: true,
         },
       ].map(article =>
         Object.assign(article, {

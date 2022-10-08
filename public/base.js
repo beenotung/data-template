@@ -63,6 +63,11 @@
             element[attr] = value
           })
       }
+      if (value) {
+        container.querySelectorAll(`[data-class="${key}"]`).forEach(element => {
+          element.classList.add(value == true ? key : value)
+        })
+      }
     }
     while (container.childNodes.length) {
       host.appendChild(container.childNodes.item(0))
