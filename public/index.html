@@ -23,7 +23,11 @@
         <h2 data-text="title"></h2>
         <p data-text="intro" data-class="highlight"></p>
         <div>
-          <img data-src="cover_image" data-alt="cover_alt" />
+          <img
+            data-src="cover_image"
+            data-alt="cover_alt"
+            data-title="cover_title"
+          />
         </div>
         <button data-disabled="archived" data-onclick="seeMore">
           see more
@@ -40,7 +44,8 @@
           title: 'Hello World',
           intro: 'This is a sample article',
           cover_image: 'https://picsum.photos/seed/1/200',
-          cover_alt: 'sample image 1',
+          cover_alt: 'brown tune photo of bridge',
+          cover_title: 'sample image 1',
           detail: '/article/1',
         },
         {
@@ -48,7 +53,9 @@
           title: 'Hello SPA',
           intro: 'This is the second sample article',
           cover_image: 'https://picsum.photos/seed/2/200',
-          cover_alt: 'sample image 2',
+          cover_alt:
+            'desk with laptop, keyboard, mouse, notebook and a pair of glasses',
+          cover_title: 'sample image 2',
           detail: '/article/2',
           archived: true,
         },
@@ -57,7 +64,8 @@
           title: 'Hello SPA',
           intro: 'This is text should be bolded',
           cover_image: 'https://picsum.photos/seed/3/200',
-          cover_alt: 'sample image 3',
+          cover_alt: 'a small waterfall in the forest',
+          cover_title: 'sample image 3',
           detail: '/article/3',
           passed: true,
           highlight: true,

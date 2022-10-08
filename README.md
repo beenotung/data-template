@@ -13,6 +13,7 @@ Lightweight and minimal dom helpers
   - [x] href
   - [x] src
   - [x] alt
+  - [x] title
   - [x] onclick
 - [x] fetch and cache html template
 
@@ -21,5 +22,5 @@ Lightweight and minimal dom helpers
 | Format         | File Size |
 | -------------- | --------- |
 | base.js        | 2.1 KB    |
-| base.min.js    | 943 B     |
-| base.min.js.gz | 576 B     |
+| base.min.js    | 951 B     |
+| base.min.js.gz | 582 B     |

@@ -54,6 +54,7 @@
         'href',
         'src',
         'alt',
+        'title',
         'onclick',
       ]) {
         container
