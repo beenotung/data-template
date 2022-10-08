@@ -15,7 +15,7 @@
       } else {
         template = doc.querySelector(`${t}[data-name="${name}"]`)
         if (!template) {
-          console.error(t,`not found:`, name)
+          console.error(t, `not found:`, name)
           return
         }
       }
