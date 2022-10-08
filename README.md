@@ -10,6 +10,9 @@ Lightweight and minimal dom helpers
   - [x] hidden
   - [x] value
   - [x] class
+  - [x] href
+  - [x] src
+  - [x] alt
   - [x] onclick
 - [x] fetch and cache html template
 

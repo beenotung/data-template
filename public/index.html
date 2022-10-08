@@ -22,10 +22,14 @@
         <input name="id" data-value="id" hidden />
         <h2 data-text="title"></h2>
         <p data-text="intro" data-class="highlight"></p>
+        <div>
+          <img data-src="cover_image" data-alt="cover_alt" />
+        </div>
         <button data-disabled="archived" data-onclick="seeMore">
           see more
         </button>
         <div data-hidden="passed">Status: active</div>
+        <a data-href="detail">Details</a>
       </article>
     </template>
     <script src="base.js"></script>
@@ -35,17 +39,26 @@
           id: 1,
           title: 'Hello World',
           intro: 'This is a sample article',
+          cover_image: 'https://picsum.photos/seed/1/200',
+          cover_alt: 'sample image 1',
+          detail: '/article/1',
         },
         {
           id: 2,
           title: 'Hello SPA',
           intro: 'This is the second sample article',
+          cover_image: 'https://picsum.photos/seed/2/200',
+          cover_alt: 'sample image 2',
+          detail: '/article/2',
           archived: true,
         },
         {
           id: 3,
           title: 'Hello SPA',
           intro: 'This is text should be bolded',
+          cover_image: 'https://picsum.photos/seed/3/200',
+          cover_alt: 'sample image 3',
+          detail: '/article/3',
           passed: true,
           highlight: true,
         },

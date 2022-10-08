@@ -51,6 +51,9 @@
         'disabled',
         'hidden',
         'value',
+        'href',
+        'src',
+        'alt',
         'onclick',
       ]) {
         container
