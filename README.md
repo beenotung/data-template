@@ -5,7 +5,7 @@ Lightweight and minimal dom helpers
 ## Features
 
 - [x] apply data into dom based on dataset (`data-*`) attributes
-  - [x] textContent
+  - [x] text
   - [x] disabled
   - [x] hidden
   - [x] value
