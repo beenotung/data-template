@@ -1,12 +1,10 @@
-;(function () {
-  Object.assign(window, { scanTemplates })
-
+;(() => {
   // shortcuts to reduce minified size
   let doc = document
   let store = localStorage
   let t = 'template'
 
-  function scanTemplates(root = doc.body, binds = {}) {
+  window.scanTemplates = (root = doc.body, binds = {}) =>
     root.querySelectorAll(`[data-${t}]`).forEach(async host => {
       let name = host.dataset.template
       let template
@@ -22,16 +20,13 @@
       let values = binds[host.dataset.bind]
       host.textContent = ''
       if (Array.isArray(values)) {
-        values.forEach(values => {
-          bindTemplate(host, template, values)
-        })
+        values.forEach(values => bindTemplate(host, template, values))
       } else {
         bindTemplate(host, template, values)
       }
     })
-  }
 
-  async function loadTemplate(name) {
+  let loadTemplate = async name => {
     let html = store.getItem(name)
     let p = fetch(name).then(res => res.text())
     if (!html) {
@@ -44,29 +39,27 @@
     return template
   }
 
-  let attrs = ['text', 'disabled', 'hidden', 'value', 'onclick']
   let attrAlias = {
     text: 'textContent',
   }
 
-  function bindTemplate(host, template, values) {
+  let bindTemplate = (host, template, values) => {
     let node = template.content.cloneNode(true)
     let container = doc.createElement('div')
     container.appendChild(node)
     for (let key in values) {
       let value = values[key]
-      for (let attr of attrs) {
+      for (let attr of ['text', 'disabled', 'hidden', 'value', 'onclick']) {
         container
           .querySelectorAll(`[data-${attr}="${key}"]`)
-          .forEach(element => {
-            attr = attrAlias[attr] || attr
-            element[attr] = value
-          })
+          .forEach(element => (element[attrAlias[attr] || attr] = value))
       }
       if (value) {
-        container.querySelectorAll(`[data-class="${key}"]`).forEach(element => {
-          element.classList.add(value == true ? key : value)
-        })
+        container
+          .querySelectorAll(`[data-class="${key}"]`)
+          .forEach(element =>
+            element.classList.add(value == true ? key : value),
+          )
       }
     }
     while (container.childNodes.length) {
