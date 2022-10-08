@@ -39,6 +39,7 @@
     }
     p.then(html => store.setItem(name, html))
     let template = doc.createElement(t)
+    // deepcode ignore DOMXSS: the template is authored by the application developer, not from untrusted users
     template.innerHTML = html
     return template
   }
