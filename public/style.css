@@ -3,6 +3,15 @@
     background-color: #222;
     color: #eee;
   }
+  a {
+    color: #cc0;
+  }
+  a:visited {
+    color: #0c0;
+  }
+  button[disabled] {
+    color: #000;
+  }
 }
 
 .highlight {
