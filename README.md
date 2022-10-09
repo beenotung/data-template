@@ -33,18 +33,6 @@ function getText(url,options)
 function getJSON(url,options)
 ```
 
-## Get Started
-
-For development mode:
-
-1. Run `npm install` to install the dependencies
-2. Run `npm run dev` to start the development server
-
-For production deployment:
-
-1. Run `npm run build` to compile the typescript project and minify the `base.js`
-2. Run `npm start` to start the nodejs server
-
 ## Size
 
 | Format         | File Size |
@@ -52,3 +40,11 @@ For production deployment:
 | base.js        | 2.2 KB    |
 | base.min.js    | 1.1 KB    |
 | base.min.js.gz | 623 B     |
+
+## Get Started
+
+```bash
+npm init spa-lite my-app # or: npx create-spa-lite my-app
+cd my-app
+# then see the guideline in README.md
+```

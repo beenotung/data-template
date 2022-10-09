@@ -2,7 +2,7 @@
 set -e
 set -o pipefail
 
-cd public
+cd template/public
 npx esbuild base.js --minify > base.min.js
 gzip -f -k base.min.js
 
