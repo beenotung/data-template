@@ -51,4 +51,4 @@ For production deployment:
 | -------------- | --------- |
 | base.js        | 2.2 KB    |
 | base.min.js    | 1.1 KB    |
-| base.min.js.gz | 629 B     |
+| base.min.js.gz | 623 B     |

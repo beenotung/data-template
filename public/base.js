@@ -16,31 +16,28 @@ var renderTemplate, scanTemplates
     let node = template.content.cloneNode(true)
     let container = document.createElement('div')
     container.appendChild(node)
-    for (let key in values) {
-      let value = values[key]
-      for (let attr of [
-        'class',
-        'text',
-        'disabled',
-        'hidden',
-        'show',
-        'value',
-        'href',
-        'src',
-        'alt',
-        'title',
-        'onclick',
-      ]) {
-        container
-          .querySelectorAll(`[data-${attr}="${key}"]`)
-          .forEach(element =>
-            attr == 'class'
-              ? element.classList.add(value == true ? key : value)
-              : attr == 'show'
-              ? (element.hidden = !value)
-              : (element[attr == 'text' ? 'textContent' : attr] = value),
-          )
-      }
+    for (let attr of [
+      'class',
+      'text',
+      'disabled',
+      'hidden',
+      'show',
+      'value',
+      'href',
+      'src',
+      'alt',
+      'title',
+      'onclick',
+    ]) {
+      container.querySelectorAll(`[data-${attr}]`).forEach(element => {
+        let key = element.dataset[attr]
+        let value = values[key]
+        attr == 'class'
+          ? element.classList.add(value == true ? key : value)
+          : attr == 'show'
+          ? (element.hidden = !value)
+          : (element[attr == 'text' ? 'textContent' : attr] = value)
+      })
     }
     while (container.childNodes.length) {
       host.appendChild(container.childNodes.item(0))

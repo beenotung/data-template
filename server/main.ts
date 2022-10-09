@@ -17,8 +17,6 @@ let articles = [
     cover_alt: 'brown tune photo of bridge',
     cover_title: 'sample image 1',
     detail: '/article.html?id=1',
-    passed: false,
-    archived: false,
   },
   {
     id: 2,
@@ -29,7 +27,6 @@ let articles = [
       'desk with laptop, keyboard, mouse, notebook and a pair of glasses',
     cover_title: 'sample image 2',
     detail: '/article.html?id=2',
-    passed: false,
     archived: true,
   },
   {
