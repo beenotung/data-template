@@ -28,5 +28,5 @@ For production deployment:
 | Format         | File Size |
 | -------------- | --------- |
 | base.js        | 2.1 KB    |
-| base.min.js    | 951 B     |
-| base.min.js.gz | 582 B     |
+| base.min.js    | 975 B     |
+| base.min.js.gz | 579 B     |

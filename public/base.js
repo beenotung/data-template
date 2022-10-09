@@ -1,17 +1,15 @@
 ;(() => {
   // shortcuts to reduce minified size
-  let doc = document
-  let store = localStorage
   let t = 'template'
 
-  window.scanTemplates = (root = doc.body, binds = {}) =>
+  window.scanTemplates = (root = document.body, binds = {}) =>
     root.querySelectorAll(`[data-${t}]`).forEach(async host => {
       let name = host.dataset.template
       let template
       if (name.endsWith('.html')) {
         template = await loadTemplate(name)
       } else {
-        template = doc.querySelector(`${t}[data-name="${name}"]`)
+        template = document.querySelector(`${t}[data-name="${name}"]`)
         if (!template) {
           console.error(t, `not found:`, name)
           return
@@ -27,13 +25,13 @@
     })
 
   let loadTemplate = async name => {
-    let html = store.getItem(name)
+    let html = localStorage.getItem(name)
     let p = fetch(name).then(res => res.text())
     if (!html) {
       html = await p
     }
-    p.then(html => store.setItem(name, html))
-    let template = doc.createElement(t)
+    p.then(html => localStorage.setItem(name, html))
+    let template = document.createElement(t)
     // deepcode ignore DOMXSS: the template is authored by the application developer, not from untrusted users
     template.innerHTML = html
     return template
@@ -41,7 +39,7 @@
 
   let bindTemplate = (host, template, values) => {
     let node = template.content.cloneNode(true)
-    let container = doc.createElement('div')
+    let container = document.createElement('div')
     container.appendChild(node)
     for (let key in values) {
       let value = values[key]
