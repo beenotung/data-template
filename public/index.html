@@ -42,7 +42,7 @@
       renderTemplate(header) // or apply template on specific element
       renderTemplate(footer)
       /* see articles in server/main.ts */
-      then(getJSON('/articles'), articles => {
+      getJSON('/articles').then(articles => {
         articles.forEach(article => {
           article.seeMore = event => seeMore(event, article.id)
         })

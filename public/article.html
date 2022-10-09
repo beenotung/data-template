@@ -33,11 +33,11 @@
         </ul>
       </article>
     </template>
-    <script src="base.min.js"></script>
+    <script src="base.js"></script>
     <script>
       renderTemplate(header)
       renderTemplate(footer)
-      then(getJSON('/article' + location.search), article => {
+      getJSON('/article' + location.search).then(article => {
         renderTemplate(main, { article })
       })
     </script>

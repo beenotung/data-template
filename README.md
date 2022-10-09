@@ -26,14 +26,11 @@ function scanTemplates(rootElement, binds)
 **Helper Functions**:
 
 ```javascript
-// return promise of string or cached string
+// return promise of string, cached with localStorage
 function getText(url,options)
 
-// return promise of object or cached object
+// return promise of object, cached with localStorage
 function getJSON(url,options)
-
-// pass the value to callback, wait for resolve if needed
-function then(promiseOrValue, callback)
 ```
 
 ## Get Started

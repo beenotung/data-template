@@ -1,27 +1,16 @@
-var then = (p, cb) => (p.then ? p.then(cb) : cb(p))
-
-var getText = (url, options) => {
+var getText = async (url, options) => {
   let text = localStorage.getItem(url)
   let p = fetch(url, options).then(res => res.text())
   p.then(text => localStorage.setItem(url, text))
   return text || p
 }
 
-var getJSON = (url, options) => then(getText(url, options), JSON.parse)
+var getJSON = (url, options) => getText(url, options).then(JSON.parse)
 
 var renderTemplate, scanTemplates
 ;(() => {
   // shortcuts to reduce minified size
   let t = 'template'
-
-  let loadTemplate = name => then(getText(name), createTemplate)
-
-  let createTemplate = html => {
-    let template = document.createElement(t)
-    // deepcode ignore DOMXSS: the template is authored by the application developer, not from untrusted users
-    template.innerHTML = html
-    return template
-  }
 
   let bindTemplate = (host, template, values) => {
     let node = template.content.cloneNode(true)
@@ -62,13 +51,12 @@ var renderTemplate, scanTemplates
     let name = host.dataset.template
     let template
     if (name.endsWith('.html')) {
-      template = await loadTemplate(name)
+      template = document.createElement(t)
+      // deepcode ignore DOMXSS: the template is authored by the application developer, not from untrusted users
+      template.innerHTML = await getText(name)
     } else {
       template = document.querySelector(`${t}[data-name="${name}"]`)
-      if (!template) {
-        console.error(t, `not found:`, name)
-        return
-      }
+      if (!template) return console.error(t, `not found:`, name)
     }
     let values = binds[host.dataset.bind]
     host.textContent = ''
