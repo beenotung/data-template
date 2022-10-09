@@ -6,6 +6,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SPA-lite Demo</title>
     <link rel="stylesheet" href="style.css" />
+    <style>
+      main {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      article {
+        margin: 0.25rem;
+        padding: 0.5rem;
+        border-radius: 0.5rem;
+      }
+      @media screen and (max-width: 750px) {
+        main {
+          flex-direction: column;
+        }
+        article {
+          min-width: 300px;
+          margin-left: auto;
+          margin-right: auto;
+        }
+      }
+      @media (prefers-color-scheme: dark) {
+        article {
+          background-color: #444;
+        }
+      }
+      @media (prefers-color-scheme: light) {
+        article {
+          background-color: #ccc;
+        }
+      }
+    </style>
   </head>
   <body>
     <div id="app">
@@ -22,6 +53,7 @@
         <p data-text="intro" data-class="highlight"></p>
         <div>
           <img
+            class="small"
             data-src="cover_image"
             data-alt="cover_alt"
             data-title="cover_title"

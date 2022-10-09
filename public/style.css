@@ -33,6 +33,11 @@ article img {
   height: 200px;
 }
 
+img.small {
+  width: 64px;
+  height: 64px;
+}
+
 ul.tags {
   padding: 0;
 }
