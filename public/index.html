@@ -9,13 +9,11 @@
   </head>
   <body>
     <div id="app">
-      <header data-template="header.html"></header>
-      <main id="main">
-        <div data-template="article" data-bind="articles">
-          loading articles...
-        </div>
+      <header id="header" data-template="header.html"></header>
+      <main id="main" data-template="article" data-bind="articles">
+        loading articles...
       </main>
-      <footer data-template="footer.html"></footer>
+      <footer id="footer" data-template="footer.html"></footer>
     </div>
     <template data-name="article">
       <article>
@@ -33,52 +31,26 @@
           see more
         </button>
         <div data-hidden="passed">Status: active</div>
-        <a data-href="detail">Details</a>
+        <div>
+          <a data-href="detail">Details</a>
+        </div>
       </article>
     </template>
     <script src="base.js"></script>
     <script>
-      let articles = [
-        {
-          id: 1,
-          title: 'Hello World',
-          intro: 'This is a sample article',
-          cover_image: 'https://picsum.photos/seed/1/200',
-          cover_alt: 'brown tune photo of bridge',
-          cover_title: 'sample image 1',
-          detail: '/article/1',
-        },
-        {
-          id: 2,
-          title: 'Hello SPA',
-          intro: 'This is the second sample article',
-          cover_image: 'https://picsum.photos/seed/2/200',
-          cover_alt:
-            'desk with laptop, keyboard, mouse, notebook and a pair of glasses',
-          cover_title: 'sample image 2',
-          detail: '/article/2',
-          archived: true,
-        },
-        {
-          id: 3,
-          title: 'Hello SPA',
-          intro: 'This is text should be bolded',
-          cover_image: 'https://picsum.photos/seed/3/200',
-          cover_alt: 'a small waterfall in the forest',
-          cover_title: 'sample image 3',
-          detail: '/article/3',
-          passed: true,
-          highlight: true,
-        },
-      ].map(article =>
-        Object.assign(article, {
-          seeMore: event => seeMore(event, article.id),
-        }),
-      )
+      // scanTemplates(app) // scan all templates recursively
+      renderTemplate(header) // or apply template on specific element
+      renderTemplate(footer)
+      /* see articles in server/main.ts */
+      then(getJSON('/articles'), articles => {
+        articles.forEach(article => {
+          article.seeMore = event => seeMore(event, article.id)
+        })
+        renderTemplate(main, { articles })
+      })
       function seeMore(event, id) {
         console.log('see more:', { event, id })
       }
-      scanTemplates(app, { articles })
     </script>
   </body>
 </html>

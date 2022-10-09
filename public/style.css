@@ -14,6 +14,10 @@
   }
 }
 
+[hidden] {
+  display: none !important;
+}
+
 .highlight {
   font-weight: bold;
 }
@@ -21,4 +25,25 @@
 article img {
   width: 200px;
   height: 200px;
+}
+
+ul.tags {
+  padding: 0;
+}
+ul.tags li {
+  list-style: none;
+  display: inline-block;
+  padding: 0.5rem;
+  border-radius: 1.5rem;
+  font-size: 0.8rem;
+}
+@media (prefers-color-scheme: dark) {
+  ul.tags li {
+    background-color: #555;
+  }
+}
+@media (prefers-color-scheme: light) {
+  ul.tags li {
+    background-color: #ccc;
+  }
 }

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Article Detail</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <header id="header" data-template="header.html"></header>
+      <main id="main" data-template="article" data-bind="article">
+        loading article...
+      </main>
+      <a href="/">Back to homepage</a>
+      <footer id="footer" data-template="footer.html"></footer>
+    </div>
+    <template data-name="article">
+      <article>
+        <h1 data-text="title"></h1>
+        <p data-text="intro" data-class="highlight"></p>
+        <div>
+          <img
+            data-src="cover_image"
+            data-alt="cover_alt"
+            data-title="cover_title"
+          />
+        </div>
+        <ul class="tags">
+          <li data-show="passed">passed</li>
+          <li data-show="archived">archived</li>
+        </ul>
+      </article>
+    </template>
+    <script src="base.min.js"></script>
+    <script>
+      renderTemplate(header)
+      renderTemplate(footer)
+      then(getJSON('/article' + location.search), article => {
+        renderTemplate(main, { article })
+      })
+    </script>
+  </body>
+</html>

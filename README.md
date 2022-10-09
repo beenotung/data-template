@@ -5,11 +5,36 @@ Lightweight and minimal dom helpers
 ## Features
 
 - [x] apply data into dom based on dataset (`data-*`) attributes
-- [x] fetch and cache html template
+- [x] fetch and cache html template and api response
 
 **Supported `data-*` attributes**:
 
-text, disabled, hidden, value, class, href, src, alt, title, onclick
+text, disabled, hidden, show, value, class, href, src, alt, title, onclick
+
+## Functions
+
+**Template Functions**:
+
+```javascript
+// render template on specific host element
+function renderTemplate(hostElement, binds)
+
+// recursive scan for templates and render them
+function scanTemplates(rootElement, binds)
+```
+
+**Helper Functions**:
+
+```javascript
+// return promise of string or cached string
+function getText(url,options)
+
+// return promise of object or cached object
+function getJSON(url,options)
+
+// pass the value to callback, wait for resolve if needed
+function then(promiseOrValue, callback)
+```
 
 ## Get Started
 
