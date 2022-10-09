@@ -17,8 +17,12 @@
       <footer id="footer" data-template="footer.html"></footer>
     </div>
     <template data-name="article">
-      <article>
-        <h1 data-text="title"></h1>
+      <p class="error" data-text="error" data-show="error"></p>
+      <article data-hidden="error">
+        <h1>
+          #<span data-text="id"></span>
+          <span data-text="title"></span>
+        </h1>
         <p data-text="intro" data-class="highlight"></p>
         <div>
           <img
