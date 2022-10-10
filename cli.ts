@@ -1,14 +1,15 @@
 import { readFileSync, writeFileSync } from 'fs'
-import { cloneTemplate, getDest } from 'npm-init-helper'
+import { copyTemplate, getDest } from 'npm-init-helper'
 import { basename, join } from 'path'
 
 async function main() {
+  let srcDir = join(__dirname, 'template')
   let dest = await getDest()
-  await cloneTemplate({
-    gitSrc: 'https://github.com/beenotung/spa-lite#monorepo',
-    srcDir: 'template',
+  await copyTemplate({
+    srcDir,
     dest,
     updatePackageJson: true,
+    verbose: true,
   })
   let name = basename(dest)
   if (name !== 'my-app') {
