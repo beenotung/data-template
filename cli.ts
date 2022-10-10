@@ -26,15 +26,15 @@ Done.
 Get started by typing:
 
   cd ${dest}
-	pnpm i
-	npm run dev
+  pnpm i
+  npm run dev
 
 Installation Alternatives:
 
   pnpm i
-	slnpm
-	yarn
-	npm install
+  slnpm
+  yarn
+  npm install
 `.trim(),
   )
 }
