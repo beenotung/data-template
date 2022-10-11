@@ -9,15 +9,25 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/beenotung/spa-lite.git"
+    "url": "git+https://github.com/beenotung/data-template.git"
   },
-  "keywords": [],
+  "keywords": [
+    "data",
+    "dom",
+    "template",
+    "dataset",
+    "attribute",
+    "update",
+    "spa",
+    "data-template",
+    "data-binding"
+  ],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/beenotung/spa-lite/issues"
+    "url": "https://github.com/beenotung/data-template/issues"
   },
-  "homepage": "https://github.com/beenotung/spa-lite#readme",
+  "homepage": "https://github.com/beenotung/data-template#readme",
   "devDependencies": {
     "@types/node": "^18.7.23",
     "ts-node": "^10.9.1",

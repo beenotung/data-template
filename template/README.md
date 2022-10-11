@@ -1,6 +1,6 @@
 # my-app
 
-Powered by [spa-lite](https://github.com/beenotung/spa-lite)
+Powered by [data-template](https://github.com/beenotung/data-template)
 
 ## Get Started
 

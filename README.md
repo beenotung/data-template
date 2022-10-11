@@ -1,4 +1,4 @@
-# spa-lite
+# data-template
 
 Lightweight and minimal dom helpers
 
@@ -44,7 +44,7 @@ function getJSON(url,options)
 ## Get Started
 
 ```bash
-npm init spa-lite my-app # or: npx create-spa-lite my-app
+npm init data-template my-app # or: npx create-data-template my-app
 cd my-app
 # then see the guideline in README.md
 ```
