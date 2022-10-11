@@ -1,6 +1,6 @@
 {
-  "name": "spa-lite",
-  "version": "1.0.0",
+  "name": "data-template",
+  "version": "0.0.0",
   "description": "Lightweight and minimal dom helpers",
   "main": "index.js",
   "scripts": {
