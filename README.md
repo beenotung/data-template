@@ -17,20 +17,20 @@ text, disabled, hidden, show, value, class, href, src, alt, title, onclick
 
 ```javascript
 // render template on specific host element
-function renderTemplate(hostElement, binds)
+function renderTemplate(hostElement, binds);
 
 // recursive scan for templates and render them
-function scanTemplates(rootElement, binds)
+function scanTemplates(rootElement, binds);
 ```
 
 **Helper Functions**:
 
 ```javascript
 // return promise of string, cached with localStorage
-function getText(url,options)
+function getText(url,options);
 
 // return promise of object, cached with localStorage
-function getJSON(url,options)
+function getJSON(url,options);
 ```
 
 ## Size
