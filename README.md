@@ -27,10 +27,10 @@ function scanTemplates(rootElement, binds);
 
 ```javascript
 // return promise of string, cached with localStorage
-function getText(url,options);
+function getText(url, options);
 
 // return promise of object, cached with localStorage
-function getJSON(url,options);
+function getJSON(url, options);
 ```
 
 ## Size
