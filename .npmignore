@@ -1,0 +1,7 @@
+.dccache
+*.tgz
+pnpm-lock.yaml
+cli.ts
+scripts/
+tsconfig.json
+!template/tsconfig.json
