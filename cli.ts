@@ -13,6 +13,7 @@ async function main() {
   })
   let name = basename(dest)
   if (name !== 'my-app') {
+    // update project name in README.md
     let file = join(dest, 'README.md')
     let text = readFileSync(file)
       .toString()
