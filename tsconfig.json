@@ -7,5 +7,8 @@
     "strict": true,
     "skipLibCheck": true,
     "incremental": true
-  }
+  },
+  "include": [
+    "cli.ts"
+  ]
 }
