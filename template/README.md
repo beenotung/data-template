@@ -13,3 +13,8 @@ For production deployment:
 
 1. Run `npm run build` to compile the typescript project and minify the `base.js`
 2. Run `npm start` to start the nodejs server
+
+### Alternative Installation Methods
+- `pnpm i`
+- `yarn install`
+- `slnpm`
