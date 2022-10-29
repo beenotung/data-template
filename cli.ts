@@ -1,5 +1,5 @@
 import { readFileSync, writeFileSync } from 'fs'
-import { copyTemplate, getDest } from 'npm-init-helper'
+import { copyTemplate, getDest, hasExec } from 'npm-init-helper'
 import { basename, join } from 'path'
 
 async function main() {
@@ -27,14 +27,29 @@ Done.
 Get started by typing:
 
   cd ${dest}
-  pnpm i
-  npm run dev
+`.trim(),
+  )
 
+  if (hasExec('pnpm')) {
+    console.log(`  pnpm i`)
+    console.log(`  npm run dev`)
+  } else if (hasExec('yarn')) {
+    console.log(`  yarn install`)
+    console.log(`  yarn dev`)
+  } else {
+    console.log(`  npm i`)
+    console.log(`  npm run dev`)
+  }
+
+  console.log()
+
+  console.log(
+    `
 Installation Alternatives:
 
   pnpm i
   slnpm
-  yarn
+  yarn install
   npm install
 `.trim(),
   )
