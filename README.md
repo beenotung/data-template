@@ -46,5 +46,5 @@ function getJSON(url, options);
 ```bash
 npm init data-template my-app # or: npx create-data-template my-app
 cd my-app
-# then see the guideline in README.md
+# then see the guides in the console output and README.md file
 ```
