@@ -37,6 +37,10 @@ The port number may be changed by the `PORT` variable in the `.env` file
 
 If you have installed pm2, you can start the server with: `pm2 start --name my-app dist/main.js`
 
+In the production mode, the server will enable compression (e.g. gzip) when the client supports it.
+
+It will also use the minified `base.min.js` when requested `base.min`, so you don't have to change the `src` attribute in the `<script>` tags.
+
 ## Extra Tips
 
 Checkout the `spdy` package, it supports http2 to reduce the network overhead when doing ajax.

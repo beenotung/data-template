@@ -1,8 +1,17 @@
 import express from 'express'
+import compression from 'compression'
 import { print } from 'listening-on'
+import path from 'path'
 import { env } from './env'
 
 let app = express()
+
+if (process.env.NODE_ENV == 'production') {
+  app.use(compression())
+  app.get('/base.js', (req, res) => {
+    res.sendFile(path.resolve(path.join('public', 'base.min.js')))
+  })
+}
 
 app.use(express.static('public'))
 app.use(express.json())
