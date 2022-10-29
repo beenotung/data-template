@@ -1,6 +1,6 @@
 # data-template
 
-Lightweight and minimal dom helpers
+Lightweight and minimal dom template helpers
 
 ## Example
 

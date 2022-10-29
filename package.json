@@ -1,7 +1,7 @@
 {
   "name": "data-template",
   "version": "1.0.0",
-  "description": "Lightweight and minimal dom helpers",
+  "description": "Lightweight and minimal dom template helpers",
   "main": "index.js",
   "scripts": {
     "test": "tsc --noEmit",
