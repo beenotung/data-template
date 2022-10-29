@@ -36,3 +36,10 @@ The port number may be changed by the `PORT` variable in the `.env` file
 2. Run `npm start` to start the node.js server
 
 If you have installed pm2, you can start the server with: `pm2 start --name my-app dist/main.js`
+
+## Extra Tips
+
+Checkout the `spdy` package, it supports http2 to reduce the network overhead when doing ajax.
+However, it requires https cert to function practically. Hence, it is not included in the template for simplicity.
+
+If you are new to https cert, checkout `mkcert` for local development, and `certbot` for production deployment.
