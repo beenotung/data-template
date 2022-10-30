@@ -30,8 +30,8 @@ Lightweight and minimal dom template helpers
 
   /* sample data:
   [
-    { title: '...', intro: '...', detail: '/article.html?id=1' },
-    { title: '...', intro: '...', detail: '/article.html?id=2' },
+    { title: '...', intro: '...', detail: '/article.html?id=1', highlight: false },
+    { title: '...', intro: '...', detail: '/article.html?id=2', highlight: true },
   ]
   */
   getJSON('/articles').then(articles => renderTemplate(main, { articles }))
