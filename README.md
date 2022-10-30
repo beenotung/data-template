@@ -46,6 +46,7 @@ More examples see [template/public](template/public)
 
 - [x] apply data into dom based on dataset (`data-*`) attributes
 - [x] fetch and cache html template and api response with localStorage
+- [x] lightweight, <1KB minified
 
 **Supported `data-*` attributes**:
 
