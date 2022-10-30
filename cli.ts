@@ -40,18 +40,5 @@ Get started by typing:
     console.log(`  npm i`)
     console.log(`  npm run dev`)
   }
-
-  console.log()
-
-  console.log(
-    `
-Installation Alternatives:
-
-  pnpm i
-  slnpm
-  yarn install
-  npm install
-`.trim(),
-  )
 }
 main().catch(e => console.error(e))
