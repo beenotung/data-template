@@ -4,6 +4,16 @@ Lightweight and minimal dom template helpers
 
 [![npm Package Version](https://img.shields.io/npm/v/data-template)](https://www.npmjs.com/package/data-template)
 
+## Features
+
+- [x] apply data into dom based on dataset (`data-*`) attributes
+- [x] fetch and cache html template and api response with localStorage
+- [x] lightweight, [<1KB minified](#size)
+
+**Supported `data-*` attributes**:
+
+text, disabled, hidden, show, value, class, href, src, alt, title, onclick
+
 ## Quick Example with CDN
 
 ```html
@@ -41,16 +51,6 @@ Lightweight and minimal dom template helpers
 ```
 
 More examples see [template/public](template/public)
-
-## Features
-
-- [x] apply data into dom based on dataset (`data-*`) attributes
-- [x] fetch and cache html template and api response with localStorage
-- [x] lightweight, <1KB minified
-
-**Supported `data-*` attributes**:
-
-text, disabled, hidden, show, value, class, href, src, alt, title, onclick
 
 ## Functions
 
