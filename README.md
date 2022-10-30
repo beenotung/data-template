@@ -2,6 +2,8 @@
 
 Lightweight and minimal dom template helpers
 
+[![npm Package Version](https://img.shields.io/npm/v/data-template)](https://www.npmjs.com/package/data-template)
+
 ## Quick Example with CDN
 
 ```html
