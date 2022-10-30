@@ -2,7 +2,10 @@
   "name": "data-template",
   "version": "1.0.0",
   "description": "Lightweight and minimal dom template helpers",
-  "main": "index.js",
+  "main": "base.js",
+  "bin": {
+    "data-template": "cli.js"
+  },
   "scripts": {
     "test": "tsc --noEmit",
     "build": "run-p tsc base",

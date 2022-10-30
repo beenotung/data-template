@@ -104,7 +104,7 @@ Or use the minified version:
 ## Get Started (with template project)
 
 ```bash
-npm init data-template my-app # or: npx create-data-template my-app
+npx data-template my-app
 cd my-app
 # then see the guides in the console output and README.md file
 ```
