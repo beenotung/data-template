@@ -2,7 +2,7 @@
 
 Lightweight and minimal dom template helpers
 
-## Example
+## Quick Example with CDN
 
 ```html
 <script
