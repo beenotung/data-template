@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import { readFileSync, writeFileSync } from 'fs'
 import { copyTemplate, getDest, hasExec } from 'npm-init-helper'
 import { basename, join } from 'path'
