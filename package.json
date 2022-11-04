@@ -1,6 +1,6 @@
 {
   "name": "data-template",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Lightweight and minimal dom template helpers",
   "main": "base.js",
   "bin": {
