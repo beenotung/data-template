@@ -20,9 +20,12 @@ var renderTemplate, scanTemplates
       'class',
       'text',
       'disabled',
+      'readonly',
+      'open',
       'hidden',
       'show',
       'value',
+      'checked',
       'href',
       'src',
       'alt',
@@ -36,6 +39,10 @@ var renderTemplate, scanTemplates
           ? element.classList.add(value == true ? key : value)
           : attr == 'show'
           ? (element.hidden = !value)
+          : attr == 'readonly'
+          ? (element.readOnly = !!value)
+          : attr == 'open' || attr == 'checked'
+          ? (element[attr] = !!value)
           : (element[attr == 'text' ? 'textContent' : attr] = value)
       })
     }

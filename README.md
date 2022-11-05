@@ -12,7 +12,7 @@ Lightweight and minimal dom template helpers
 
 **Supported `data-*` attributes**:
 
-text, disabled, hidden, show, value, class, href, src, alt, title, onclick
+text, disabled, readonly, open, hidden, show, value, checked, class, href, src, alt, title, onclick
 
 ## Quick Example with CDN
 
@@ -78,9 +78,9 @@ function getJSON(url, options);
 
 | Format         | File Size |
 | -------------- | --------- |
-| base.js        | 2.2 KB    |
-| base.min.js    | 1.1 KB    |
-| base.min.js.gz | 623 B     |
+| base.js        | 2.3 KB    |
+| base.min.js    | 1.2 KB    |
+| base.min.js.gz | 663 B     |
 
 ## Get Started (with CDN)
 
