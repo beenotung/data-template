@@ -78,7 +78,9 @@
     let text = localStorage.getItem(url)
     let p = fetch(url, options).then(res => res.text())
     p.then(text => localStorage.setItem(url, text))
-    return text || p
+    let cache = options && options.cache
+    let skipCache = cache && cache != 'force-cache'
+    return skipCache ? p : text || p
   }
 
   win.getJSON = (url, options) => getText(url, options).then(JSON.parse)
