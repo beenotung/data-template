@@ -8,7 +8,7 @@ Lightweight and minimal dom template helpers
 
 - [x] apply data into dom based on dataset (`data-*`) attributes
 - [x] fetch and cache html template and api response with localStorage
-- [x] lightweight, [<1KB minified](#size)
+- [x] lightweight, [<1KB minified and gzipped](#size)
 
 **Supported `data-*` attributes**:
 
@@ -72,15 +72,21 @@ function getText(url, options);
 
 // return promise of object, cached with localStorage
 function getJSON(url, options);
+
+// send ajax request in application/x-www-form-urlencoded, return promise of response
+function submitForm(event_or_form);
+
+// send ajax request in multipart/form-data, return promise of response
+function uploadForm(event_or_form);
 ```
 
 ## Size
 
 | Format         | File Size |
 | -------------- | --------- |
-| base.js        | 2.3 KB    |
-| base.min.js    | 1.2 KB    |
-| base.min.js.gz | 663 B     |
+| base.js        | 3.1 KB    |
+| base.min.js    | 1.5 KB    |
+| base.min.js.gz | 858 B     |
 
 ## Get Started (with CDN)
 

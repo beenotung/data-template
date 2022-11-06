@@ -1,14 +1,8 @@
-var getText = async (url, options) => {
-  let text = localStorage.getItem(url)
-  let p = fetch(url, options).then(res => res.text())
-  p.then(text => localStorage.setItem(url, text))
-  return text || p
-}
+;(win => {
+  /**
+   * DOM related
+   */
 
-var getJSON = (url, options) => getText(url, options).then(JSON.parse)
-
-var renderTemplate, scanTemplates
-;(() => {
   // shortcuts to reduce minified size
   let t = 'template'
 
@@ -51,7 +45,7 @@ var renderTemplate, scanTemplates
     }
   }
 
-  renderTemplate = async (host, binds = {}) => {
+  win.renderTemplate = async (host, binds = {}) => {
     let name = host.dataset.template
     let template
     if (name.endsWith('.html')) {
@@ -71,8 +65,50 @@ var renderTemplate, scanTemplates
     }
   }
 
-  scanTemplates = (root = document.body, binds = {}) =>
+  win.scanTemplates = (root = document.body, binds = {}) =>
     root
       .querySelectorAll(`[data-${t}]`)
       .forEach(host => renderTemplate(host, binds))
-})()
+
+  /**
+   * AJAX related
+   */
+
+  win.getText = async (url, options) => {
+    let text = localStorage.getItem(url)
+    let p = fetch(url, options).then(res => res.text())
+    p.then(text => localStorage.setItem(url, text))
+    return text || p
+  }
+
+  win.getJSON = (url, options) => getText(url, options).then(JSON.parse)
+
+  let toForm = (event_or_form = event) => {
+    if (event_or_form instanceof HTMLFormElement) {
+      return event_or_form
+    }
+    event_or_form.preventDefault()
+    return event_or_form.target
+  }
+
+  win.submitForm = event_or_form => {
+    let form = toForm(event_or_form)
+    let params = new URLSearchParams()
+    for (let input of form.elements) {
+      params.append(input.name, input.value)
+    }
+    return fetch(form.action, {
+      method: form.method,
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: params.toString(),
+    })
+  }
+
+  win.uploadForm = event_or_form => {
+    let form = toForm(event_or_form)
+    return fetch(form.action, {
+      method: form.method,
+      body: new FormData(form),
+    })
+  }
+})(window)

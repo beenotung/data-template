@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <!-- ionic over CDN -->
+    <script
+      type="module"
+      src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css"
+    />
+  </head>
+  <body>
+    <ion-page>
+      <ion-header>
+        <ion-toolbar color="primary">
+          <ion-title>Articles</ion-title>
+          <ion-buttons slot="end">
+            <ion-button id="open-modal">
+              <ion-icon slot="icon-only" name="add"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+        <ion-list
+          id="list"
+          data-template="article"
+          data-bind="articles"
+        ></ion-list>
+        <template data-name="article">
+          <ion-item>
+            <ion-thumbnail slot="start">
+              <img data-src="cover_image" />
+            </ion-thumbnail>
+            <ion-label>
+              <h2 data-text="title"></h2>
+              <p data-text="intro"></p>
+            </ion-label>
+          </ion-item>
+        </template>
+        <ion-modal trigger="open-modal" id="modal">
+          <ion-header>
+            <ion-toolbar>
+              <ion-buttons slot="start">
+                <ion-button onclick="modal.dismiss()">Cancel</ion-button>
+              </ion-buttons>
+              <ion-title>Add Article</ion-title>
+              <ion-buttons slot="end">
+                <ion-button onclick="submit(window.form)">Submit</ion-button>
+              </ion-buttons>
+            </ion-toolbar>
+          </ion-header>
+          <ion-content>
+            <form
+              onsubmit="submit(event)"
+              id="form"
+              action="/articles"
+              method="POST"
+            >
+              <ion-list>
+                <ion-item>
+                  <ion-label>Title</ion-label>
+                  <ion-input type="text" name="title" id="title" />
+                </ion-item>
+                <ion-item>
+                  <ion-label>Introduction</ion-label>
+                  <ion-input type="text" name="intro" id="intro" />
+                </ion-item>
+              </ion-list>
+            </form>
+          </ion-content>
+        </ion-modal>
+      </ion-content>
+    </ion-page>
+    <script src="base.js"></script>
+    <script>
+      getJSON('/articles').then(articles => {
+        renderTemplate(list, { articles })
+      })
+      function submit(event_or_form) {
+        submitForm(event_or_form)
+      }
+    </script>
+  </body>
+</html>
