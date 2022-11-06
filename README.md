@@ -85,8 +85,8 @@ function uploadForm(event_or_form);
 | Format         | File Size |
 | -------------- | --------- |
 | base.js        | 3.1 KB    |
-| base.min.js    | 1.5 KB    |
-| base.min.js.gz | 858 B     |
+| base.min.js    | 1.6 KB    |
+| base.min.js.gz | 876 B     |
 
 ## Get Started (with CDN)
 

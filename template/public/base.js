@@ -95,7 +95,9 @@
     let form = toForm(event_or_form)
     let params = new URLSearchParams()
     for (let input of form.elements) {
-      params.append(input.name, input.value)
+      if (input.type != 'checkbox' || input.checked) {
+        params.append(input.name, input.value)
+      }
     }
     return fetch(form.action, {
       method: form.method,
