@@ -1,8 +1,4 @@
 ;(win => {
-  /**
-   * DOM related
-   */
-
   // shortcuts to reduce minified size
   let t = 'template'
 
@@ -45,6 +41,14 @@
     }
   }
 
+  let toForm = (event_or_form = event) => {
+    if (event_or_form instanceof HTMLFormElement) {
+      return event_or_form
+    }
+    event_or_form.preventDefault()
+    return event_or_form.target
+  }
+
   win.renderTemplate = async (host, binds = {}) => {
     let name = host.dataset.template
     let template
@@ -70,10 +74,6 @@
       .querySelectorAll(`[data-${t}]`)
       .forEach(host => renderTemplate(host, binds))
 
-  /**
-   * AJAX related
-   */
-
   win.getText = async (url, options) => {
     let text = localStorage.getItem(url)
     let p = fetch(url, options).then(res => res.text())
@@ -84,14 +84,6 @@
   }
 
   win.getJSON = (url, options) => getText(url, options).then(JSON.parse)
-
-  let toForm = (event_or_form = event) => {
-    if (event_or_form instanceof HTMLFormElement) {
-      return event_or_form
-    }
-    event_or_form.preventDefault()
-    return event_or_form.target
-  }
 
   win.submitForm = event_or_form => {
     let form = toForm(event_or_form)
