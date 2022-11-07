@@ -18,9 +18,9 @@ text, disabled, readonly, open, hidden, show, value, checked, class, href, src, 
 
 ```html
 <script
-  src="https://cdn.jsdelivr.net/npm/data-template@1.0.0/base.js"
+  src="https://cdn.jsdelivr.net/npm/data-template@1.1.0/base.js"
   crossorigin="anonymous"
-  integrity="sha384-Ea1dBxHd4Sl0edYP3KsTTK54ITb3qTWnoQRj0e1wQ7jSyifW5a8e8+01dqf5Fsmw"
+  integrity="sha384-ICpwtTEx/skf667ZbuQqfNng7NYiTS/jrv7dPZS8uO9DJ6td5od5+qpLAM3C4x3c"
 ></script>
 
 <header id="header" data-template="header.html"></header>
@@ -97,9 +97,9 @@ Drop below line in your html:
 
 ```html
 <script
-  src="https://cdn.jsdelivr.net/npm/data-template@1.0.0/base.js"
+  src="https://cdn.jsdelivr.net/npm/data-template@1.1.0/base.js"
   crossorigin="anonymous"
-  integrity="sha384-Ea1dBxHd4Sl0edYP3KsTTK54ITb3qTWnoQRj0e1wQ7jSyifW5a8e8+01dqf5Fsmw"
+  integrity="sha384-ICpwtTEx/skf667ZbuQqfNng7NYiTS/jrv7dPZS8uO9DJ6td5od5+qpLAM3C4x3c"
 ></script>
 ```
 
@@ -107,9 +107,9 @@ Or use the minified version:
 
 ```html
 <script
-  src="https://cdn.jsdelivr.net/npm/data-template@1.0.0/base.min.js"
+  src="https://cdn.jsdelivr.net/npm/data-template@1.1.0/base.min.js"
   crossorigin="anonymous"
-  integrity="sha384-sa5NUvWbyhRp4gPwQYHY/+ao8/S0Z51bh+6NJ8J2im2JhUXeC7jYnMN3H7zGdhcz"
+  integrity="sha384-krlHsSc5ddKlMGvhLenvp6GdNP1Y1zBdS5ruE9t1g4SHkR1+KCM4iQD7NATP9xqf"
 ></script>
 ```
 
