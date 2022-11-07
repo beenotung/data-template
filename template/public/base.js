@@ -6,6 +6,21 @@
     let node = template.content.cloneNode(true)
     let container = document.createElement('div')
     container.appendChild(node)
+    renderData(container, values)
+    while (container.childNodes.length) {
+      host.appendChild(container.childNodes.item(0))
+    }
+  }
+
+  let toForm = (event_or_form = event) => {
+    if (event_or_form instanceof HTMLFormElement) {
+      return event_or_form
+    }
+    event_or_form.preventDefault()
+    return event_or_form.target
+  }
+
+  win.renderData = (container, values) => {
     for (let attr of [
       'class',
       'text',
@@ -36,17 +51,6 @@
           : (element[attr == 'text' ? 'textContent' : attr] = value)
       })
     }
-    while (container.childNodes.length) {
-      host.appendChild(container.childNodes.item(0))
-    }
-  }
-
-  let toForm = (event_or_form = event) => {
-    if (event_or_form instanceof HTMLFormElement) {
-      return event_or_form
-    }
-    event_or_form.preventDefault()
-    return event_or_form.target
   }
 
   win.renderTemplate = async (host, binds = {}) => {

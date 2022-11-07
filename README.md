@@ -54,9 +54,12 @@ More examples see [template/public](template/public)
 
 ## Functions
 
-**Template Functions**:
+**Render Functions**:
 
 ```javascript
+// render data-* attributes
+function renderData(container, values);
+
 // render template on specific host element
 function renderTemplate(hostElement, binds);
 
@@ -64,7 +67,7 @@ function renderTemplate(hostElement, binds);
 function scanTemplates(rootElement, binds);
 ```
 
-**Helper Functions**:
+**AJAX Functions**:
 
 ```javascript
 // return promise of string, cached with localStorage
@@ -84,9 +87,9 @@ function uploadForm(event_or_form);
 
 | Format         | File Size |
 | -------------- | --------- |
-| base.js        | 3.1 KB    |
+| base.js        | 3.3 KB    |
 | base.min.js    | 1.6 KB    |
-| base.min.js.gz | 876 B     |
+| base.min.js.gz | 908 B     |
 
 ## Get Started (with CDN)
 
