@@ -8,19 +8,19 @@ Lightweight and minimal dom template helpers
 
 - [x] apply data into dom based on dataset (`data-*`) attributes
 - [x] fetch and cache html template and api response with localStorage
-- [x] lightweight, [<1KB minified](#size)
+- [x] lightweight, [<1KB minified and gzipped](#size)
 
 **Supported `data-*` attributes**:
 
-text, disabled, hidden, show, value, class, href, src, alt, title, onclick
+text, disabled, readonly, open, hidden, show, value, checked, class, href, src, alt, title, onclick
 
 ## Quick Example with CDN
 
 ```html
 <script
-  src="https://cdn.jsdelivr.net/npm/data-template@1.0.0/base.js"
+  src="https://cdn.jsdelivr.net/npm/data-template@1.1.0/base.js"
   crossorigin="anonymous"
-  integrity="sha384-Ea1dBxHd4Sl0edYP3KsTTK54ITb3qTWnoQRj0e1wQ7jSyifW5a8e8+01dqf5Fsmw"
+  integrity="sha384-ICpwtTEx/skf667ZbuQqfNng7NYiTS/jrv7dPZS8uO9DJ6td5od5+qpLAM3C4x3c"
 ></script>
 
 <header id="header" data-template="header.html"></header>
@@ -54,9 +54,12 @@ More examples see [template/public](template/public)
 
 ## Functions
 
-**Template Functions**:
+**Render Functions**:
 
 ```javascript
+// render data-* attributes
+function renderData(container, values);
+
 // render template on specific host element
 function renderTemplate(hostElement, binds);
 
@@ -64,7 +67,7 @@ function renderTemplate(hostElement, binds);
 function scanTemplates(rootElement, binds);
 ```
 
-**Helper Functions**:
+**AJAX Functions**:
 
 ```javascript
 // return promise of string, cached with localStorage
@@ -72,15 +75,21 @@ function getText(url, options);
 
 // return promise of object, cached with localStorage
 function getJSON(url, options);
+
+// send ajax request in application/x-www-form-urlencoded, return promise of response
+function submitForm(event_or_form);
+
+// send ajax request in multipart/form-data, return promise of response
+function uploadForm(event_or_form);
 ```
 
 ## Size
 
 | Format         | File Size |
 | -------------- | --------- |
-| base.js        | 2.2 KB    |
-| base.min.js    | 1.1 KB    |
-| base.min.js.gz | 623 B     |
+| base.js        | 3.3 KB    |
+| base.min.js    | 1.6 KB    |
+| base.min.js.gz | 908 B     |
 
 ## Get Started (with CDN)
 
@@ -88,9 +97,9 @@ Drop below line in your html:
 
 ```html
 <script
-  src="https://cdn.jsdelivr.net/npm/data-template@1.0.0/base.js"
+  src="https://cdn.jsdelivr.net/npm/data-template@1.1.0/base.js"
   crossorigin="anonymous"
-  integrity="sha384-Ea1dBxHd4Sl0edYP3KsTTK54ITb3qTWnoQRj0e1wQ7jSyifW5a8e8+01dqf5Fsmw"
+  integrity="sha384-ICpwtTEx/skf667ZbuQqfNng7NYiTS/jrv7dPZS8uO9DJ6td5od5+qpLAM3C4x3c"
 ></script>
 ```
 
@@ -98,9 +107,9 @@ Or use the minified version:
 
 ```html
 <script
-  src="https://cdn.jsdelivr.net/npm/data-template@1.0.0/base.min.js"
+  src="https://cdn.jsdelivr.net/npm/data-template@1.1.0/base.min.js"
   crossorigin="anonymous"
-  integrity="sha384-sa5NUvWbyhRp4gPwQYHY/+ao8/S0Z51bh+6NJ8J2im2JhUXeC7jYnMN3H7zGdhcz"
+  integrity="sha384-krlHsSc5ddKlMGvhLenvp6GdNP1Y1zBdS5ruE9t1g4SHkR1+KCM4iQD7NATP9xqf"
 ></script>
 ```
 

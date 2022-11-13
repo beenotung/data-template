@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <!-- ionic over CDN -->
+    <script
+      type="module"
+      src="https://cdn.jsdelivr.net/npm/@ionic/core@6/dist/ionic/ionic.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://cdn.jsdelivr.net/npm/@ionic/core@6/dist/ionic/ionic.js"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@ionic/core@6/css/ionic.bundle.css"
+    />
+  </head>
+  <body>
+    <ion-page>
+      <ion-header>
+        <ion-toolbar color="primary">
+          <ion-title>Articles</ion-title>
+          <ion-buttons slot="end">
+            <ion-button id="open-add-modal">
+              <ion-icon slot="icon-only" name="add"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+        <ion-list
+          id="list"
+          data-template="article"
+          data-bind="articles"
+        ></ion-list>
+        <template data-name="article">
+          <ion-item data-onclick="showDetail" href="#">
+            <ion-thumbnail slot="start">
+              <img
+                data-src="cover_image"
+                data-alt="cover_alt"
+                data-title="cover_title"
+              />
+            </ion-thumbnail>
+            <ion-label>
+              <h2 data-text="title"></h2>
+              <p data-text="intro"></p>
+            </ion-label>
+          </ion-item>
+        </template>
+        <ion-modal trigger="open-add-modal" id="addModal">
+          <ion-header>
+            <ion-toolbar>
+              <ion-buttons slot="start">
+                <ion-button onclick="addModal.dismiss()">Cancel</ion-button>
+              </ion-buttons>
+              <ion-title>Add Article</ion-title>
+              <ion-buttons slot="end">
+                <ion-button onclick="submitAdd(addForm)">Submit</ion-button>
+              </ion-buttons>
+            </ion-toolbar>
+          </ion-header>
+          <ion-content>
+            <form
+              onsubmit="submitAdd(event)"
+              id="addForm"
+              action="/articles"
+              method="POST"
+            >
+              <ion-list>
+                <ion-item>
+                  <ion-label position="floating">Title</ion-label>
+                  <ion-input type="text" name="title" />
+                </ion-item>
+                <ion-item>
+                  <ion-label position="floating">Introduction</ion-label>
+                  <ion-input type="text" name="intro" />
+                </ion-item>
+                <ion-item>
+                  <ion-label position="floating">Cover Image</ion-label>
+                  <ion-input
+                    type="text"
+                    name="cover_image"
+                    id="cover_image"
+                    oninput="preview.src=cover_image.value"
+                  ></ion-input>
+                </ion-item>
+                <ion-item>
+                  <ion-thumbnail>
+                    <img id="preview" />
+                  </ion-thumbnail>
+                </ion-item>
+                <ion-item>
+                  <ion-label position="floating">Alt Text</ion-label>
+                  <ion-input type="text" name="cover_alt"></ion-input>
+                </ion-item>
+                <ion-item>
+                  <ion-label position="floating">Cover Title</ion-label>
+                  <ion-input type="text" name="cover_title"></ion-input>
+                </ion-item>
+                <ion-item>
+                  <ion-label>Archived</ion-label>
+                  <ion-checkbox slot="start" name="archived"></ion-checkbox>
+                </ion-item>
+                <ion-item>
+                  <ion-label>Passed</ion-label>
+                  <ion-checkbox slot="start" name="passed"></ion-checkbox>
+                </ion-item>
+                <ion-item>
+                  <ion-label>Highlight</ion-label>
+                  <ion-checkbox slot="start" name="highlight"></ion-checkbox>
+                </ion-item>
+              </ion-list>
+            </form>
+          </ion-content>
+        </ion-modal>
+        <ion-modal id="detailModal">
+          <ion-header>
+            <ion-toolbar>
+              <ion-buttons slot="end">
+                <ion-button onclick="detailModal.dismiss()">Close</ion-button>
+              </ion-buttons>
+              <ion-title>Details</ion-title>
+            </ion-toolbar>
+          </ion-header>
+          <ion-content class="ion-padding-horizontal">
+            <h1 data-text="title"></h1>
+            <figure>
+              <img
+                width="200"
+                height="200"
+                data-src="cover_image"
+                data-alt="cover_alt"
+                data-title="cover_title"
+              />
+              <figcaption>
+                <p>alt text: <span data-text="cover_alt"></span></p>
+                <p>image title: <span data-text="cover_title"></span></p>
+              </figcaption>
+            </figure>
+            <p data-text="intro"></p>
+            <ion-chip data-show="archived">Archived</ion-chip>
+            <ion-chip data-show="passed">Passed</ion-chip>
+            <ion-chip data-show="highlight">Highlight</ion-chip>
+          </ion-content>
+        </ion-modal>
+      </ion-content>
+    </ion-page>
+    <script src="base.js"></script>
+    <script>
+      function loadArticles(options) {
+        getJSON('/articles', options).then(articles => {
+          articles.forEach(article => {
+            article.showDetail = () => showDetail(article)
+          })
+          renderTemplate(list, { articles })
+        })
+      }
+      loadArticles()
+      function showDetail(article) {
+        renderData(detailModal, article)
+        detailModal.present()
+      }
+      async function submitAdd(event_or_form) {
+        let json = await submitForm(event_or_form)
+          .then(res => res.json())
+          .catch(e => ({ error: String(e) }))
+        if (json.error) {
+          let toast = document.createElement('ion-toast')
+          toast.message = json.error
+          toast.duration = 5000
+          toast.position = 'top'
+          document.body.appendChild(toast)
+          return toast.present()
+        }
+        addModal.dismiss()
+        loadArticles({ cache: 'reload' })
+      }
+      let r = Math.random().toString(36).slice(2)
+      cover_image.value = `https://picsum.photos/seed/${r}/200/200`
+      preview.src = cover_image.value
+    </script>
+  </body>
+</html>

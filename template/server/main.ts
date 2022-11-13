@@ -3,6 +3,7 @@ import compression from 'compression'
 import { print } from 'listening-on'
 import path from 'path'
 import { env } from './env'
+import { checkbox, object, string } from 'cast.ts'
 
 let app = express()
 
@@ -17,7 +18,19 @@ app.use(express.static('public'))
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
-let articles = [
+type Article = {
+  id: number
+  title: string
+  intro: string
+  cover_image: string
+  cover_alt: string
+  cover_title: string
+  detail: string
+  archived?: boolean
+  passed?: boolean
+  highlight?: boolean
+}
+let articles: Article[] = [
   {
     id: 1,
     title: 'Hello World',
@@ -29,7 +42,7 @@ let articles = [
   },
   {
     id: 2,
-    title: 'Hello SPA',
+    title: 'Hello Blog',
     intro: 'This is the second sample article',
     cover_image: 'https://picsum.photos/seed/2/200',
     cover_alt:
@@ -40,7 +53,7 @@ let articles = [
   },
   {
     id: 3,
-    title: 'Hello SPA',
+    title: 'Hello Article',
     intro: 'This is text should be bolded',
     cover_image: 'https://picsum.photos/seed/3/200',
     cover_alt: 'a small waterfall in the forest',
@@ -63,6 +76,40 @@ app.get('/article', (req, res) => {
   }
   res.json(article)
 })
+
+let postArticleRequestParser = object({
+  body: object({
+    title: string({ nonEmpty: true }),
+    intro: string({ nonEmpty: true }),
+    cover_image: string({ nonEmpty: true }),
+    cover_alt: string({ nonEmpty: true }),
+    cover_title: string({ nonEmpty: true }),
+    archived: checkbox(),
+    passed: checkbox(),
+    highlight: checkbox(),
+  }),
+})
+app.post('/articles', (req, res) => {
+  let { body } = postArticleRequestParser.parse(req)
+  let id = articles.reduce((id, article) => Math.max(id, article.id), 0) + 1
+  articles.push({
+    id,
+    detail: '/article.html?id=' + id,
+    ...body,
+  })
+  res.json({ id })
+})
+
+let errorHandler: express.ErrorRequestHandler = (error, req, res, next) => {
+  console.error(error)
+  res.status(error.status || 500)
+  if (req.header('Sec-Fetch-Mode') == 'navigate') {
+    res.end(String(error))
+  } else {
+    res.json({ error: String(error) })
+  }
+}
+app.use(errorHandler)
 
 let port = env.PORT
 app.listen(port, () => {

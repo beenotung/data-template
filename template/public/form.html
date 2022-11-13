@@ -1,0 +1,43 @@
+<link rel="stylesheet" href="style.css" />
+<style>
+  form label {
+    display: block;
+  }
+</style>
+
+<div id="list" data-template="form" data-bind="items"></div>
+
+<template data-name="form">
+  <form onsubmit="event.preventDefault()">
+    <fieldset>
+      <label>
+        input checked: <input type="checkbox" data-checked="active" />
+      </label>
+      <label>
+        input readonly: <span data-text="readonly"></span>
+        <input data-readonly="readonly" />
+      </label>
+      <label>
+        input disabled: <span data-text="disabled"></span>
+        <input data-disabled="disabled" />
+      </label>
+      <div>
+        dialog open: <span data-text="open"></span>
+        <dialog data-open="open">dialog content</dialog>
+      </div>
+      <pre data-text="json"></pre>
+    </fieldset>
+  </form>
+</template>
+
+<script src="base.js"></script>
+<script>
+  let items = [
+    { active: true, readonly: true, disabled: true, open: true },
+    { active: false, readonly: false, disabled: false, open: false },
+  ]
+  for (let item of items) {
+    item.json = JSON.stringify(item, null, 2)
+  }
+  renderTemplate(list, { items })
+</script>
