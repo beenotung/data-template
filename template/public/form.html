@@ -8,24 +8,26 @@
 <div id="list" data-template="form" data-bind="items"></div>
 
 <template data-name="form">
-  <form onsubmit="event.preventDefault()">
+  <form onsubmit="submitForm(event)" method="post">
     <fieldset>
       <label>
-        input checked: <input type="checkbox" data-checked="active" />
+        input checked:
+        <input type="checkbox" data-checked="active" name="active" />
       </label>
       <label>
         input readonly: <span data-text="readonly"></span>
-        <input data-readonly="readonly" />
+        <input data-readonly="readonly" name="title" />
       </label>
       <label>
         input disabled: <span data-text="disabled"></span>
-        <input data-disabled="disabled" />
+        <input data-disabled="disabled" name="desc" />
       </label>
       <div>
         dialog open: <span data-text="open"></span>
         <dialog data-open="open">dialog content</dialog>
       </div>
       <pre data-text="json"></pre>
+      <input type="submit" value="submit" />
     </fieldset>
   </form>
 </template>

@@ -93,7 +93,7 @@
     let form = toForm(event_or_form)
     let params = new URLSearchParams()
     for (let input of form.elements) {
-      if (input.type != 'checkbox' || input.checked) {
+      if (input.name && (input.type != 'checkbox' || input.checked)) {
         params.append(input.name, input.value)
       }
     }
