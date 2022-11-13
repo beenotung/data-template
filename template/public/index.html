@@ -16,6 +16,19 @@
         padding: 0.5rem;
         border-radius: 0.5rem;
       }
+      .tags {
+        display: flex;
+      }
+      .tag {
+        display: inline-block;
+        border: 1px solid #888;
+        padding: 0.25rem;
+        margin: 0 0.25rem;
+        border-radius: 0.5rem;
+      }
+      .tag::before {
+        content: '#';
+      }
       @media screen and (max-width: 750px) {
         main {
           flex-direction: column;
@@ -55,6 +68,9 @@
       <article>
         <input name="id" data-value="id" hidden />
         <h2 data-text="title"></h2>
+        <div class="tags">
+          <div class="tag" data-text="tags"></div>
+        </div>
         <p data-text="intro" data-class="highlight"></p>
         <div>
           <img

@@ -40,15 +40,28 @@
       container.querySelectorAll(`[data-${attr}]`).forEach(element => {
         let key = element.dataset[attr]
         let value = values[key]
-        attr == 'class'
-          ? element.classList.add(value == true ? key : value)
-          : attr == 'show'
-          ? (element.hidden = !value)
-          : attr == 'readonly'
-          ? (element.readOnly = !!value)
-          : attr == 'open' || attr == 'checked'
-          ? (element[attr] = !!value)
-          : (element[attr == 'text' ? 'textContent' : attr] = value)
+        let apply = (element, value) => {
+          attr == 'class'
+            ? element.classList.add(value == true ? key : value)
+            : attr == 'show'
+            ? (element.hidden = !value)
+            : attr == 'readonly'
+            ? (element.readOnly = !!value)
+            : attr == 'open' || attr == 'checked'
+            ? (element[attr] = !!value)
+            : (element[attr == 'text' ? 'textContent' : attr] = value)
+        }
+        if (Array.isArray(value)) {
+          let parent = element.parentElement
+          value.forEach(value => {
+            let node = element.cloneNode(true)
+            apply(node, value)
+            parent.appendChild(node)
+          })
+          element.remove()
+        } else {
+          apply(element, value)
+        }
       })
     }
   }

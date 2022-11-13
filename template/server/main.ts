@@ -21,6 +21,7 @@ app.use(express.urlencoded({ extended: false }))
 type Article = {
   id: number
   title: string
+  tags: string[]
   intro: string
   cover_image: string
   cover_alt: string
@@ -34,6 +35,7 @@ let articles: Article[] = [
   {
     id: 1,
     title: 'Hello World',
+    tags: ['tag1', 'tag2', 'tag3'],
     intro: 'This is a sample article',
     cover_image: 'https://picsum.photos/seed/1/200',
     cover_alt: 'brown tune photo of bridge',
@@ -43,6 +45,7 @@ let articles: Article[] = [
   {
     id: 2,
     title: 'Hello Blog',
+    tags: ['tag1'],
     intro: 'This is the second sample article',
     cover_image: 'https://picsum.photos/seed/2/200',
     cover_alt:
@@ -54,6 +57,7 @@ let articles: Article[] = [
   {
     id: 3,
     title: 'Hello Article',
+    tags: [],
     intro: 'This is text should be bolded',
     cover_image: 'https://picsum.photos/seed/3/200',
     cover_alt: 'a small waterfall in the forest',
@@ -95,6 +99,7 @@ app.post('/articles', (req, res) => {
   articles.push({
     id,
     detail: '/article.html?id=' + id,
+    tags: [],
     ...body,
   })
   res.json({ id })

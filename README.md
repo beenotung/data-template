@@ -7,6 +7,7 @@ Lightweight and minimal dom template helpers
 ## Features
 
 - [x] apply data into dom based on dataset (`data-*`) attributes
+- [x] auto repeat elements if the value is an array
 - [x] fetch and cache html template and api response with localStorage
 - [x] lightweight, [<1KB minified and gzipped](#size)
 
@@ -85,9 +86,9 @@ function uploadForm(event_or_form);
 
 | Format         | File Size |
 | -------------- | --------- |
-| base.js        | 3.3 KB    |
-| base.min.js    | 1.6 KB    |
-| base.min.js.gz | 908 B     |
+| base.js        | 3.7 KB    |
+| base.min.js    | 1.8 KB    |
+| base.min.js.gz | 970 B     |
 
 ## Get Started (with CDN)
 
