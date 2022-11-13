@@ -16,12 +16,10 @@ text, disabled, readonly, open, hidden, show, value, checked, class, href, src, 
 
 ## Quick Example with CDN
 
+(For script tag with exact version and integrity checksum, see [below section](#get-started-with-cdn))
+
 ```html
-<script
-  src="https://cdn.jsdelivr.net/npm/data-template@1.1.0/base.js"
-  crossorigin="anonymous"
-  integrity="sha384-ICpwtTEx/skf667ZbuQqfNng7NYiTS/jrv7dPZS8uO9DJ6td5od5+qpLAM3C4x3c"
-></script>
+<script src="https://cdn.jsdelivr.net/npm/data-template@1/base.js"></script>
 
 <header id="header" data-template="header.html"></header>
 
@@ -97,9 +95,9 @@ Drop below line in your html:
 
 ```html
 <script
-  src="https://cdn.jsdelivr.net/npm/data-template@1.1.0/base.js"
+  src="https://cdn.jsdelivr.net/npm/data-template@1.1.1/base.js"
   crossorigin="anonymous"
-  integrity="sha384-ICpwtTEx/skf667ZbuQqfNng7NYiTS/jrv7dPZS8uO9DJ6td5od5+qpLAM3C4x3c"
+  integrity="sha384-1rZzqZI2MvvbgKJKi232GW4g4pNUUATW7LAK1UrppYcGFaX2zbCj7mMmtBVqdXmc"
 ></script>
 ```
 
@@ -107,9 +105,9 @@ Or use the minified version:
 
 ```html
 <script
-  src="https://cdn.jsdelivr.net/npm/data-template@1.1.0/base.min.js"
+  src="https://cdn.jsdelivr.net/npm/data-template@1.1.1/base.min.js"
   crossorigin="anonymous"
-  integrity="sha384-krlHsSc5ddKlMGvhLenvp6GdNP1Y1zBdS5ruE9t1g4SHkR1+KCM4iQD7NATP9xqf"
+  integrity="sha384-s9Sc6MaD/LqDtCfxzl6jpPdyGkjjX114cfk3UjWp6VieSElcxhtnPMIwxkzWEPVP"
 ></script>
 ```
 
