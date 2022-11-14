@@ -111,9 +111,9 @@ Drop below line in your html:
 
 ```html
 <script
-  src="https://cdn.jsdelivr.net/npm/data-template@1.1.1/base.js"
+  src="https://cdn.jsdelivr.net/npm/data-template@1.2.0/base.js"
   crossorigin="anonymous"
-  integrity="sha384-1rZzqZI2MvvbgKJKi232GW4g4pNUUATW7LAK1UrppYcGFaX2zbCj7mMmtBVqdXmc"
+  integrity="sha384-QsXO2jHue7jcsKRhtkzSOB7BWbHnSzPDpRcuwzFPWqqlEFEwOkx5rZv7s9BJgbHL"
 ></script>
 ```
 
@@ -121,9 +121,9 @@ Or use the minified version:
 
 ```html
 <script
-  src="https://cdn.jsdelivr.net/npm/data-template@1.1.1/base.min.js"
+  src="https://cdn.jsdelivr.net/npm/data-template@1.2.0/base.min.js"
   crossorigin="anonymous"
-  integrity="sha384-s9Sc6MaD/LqDtCfxzl6jpPdyGkjjX114cfk3UjWp6VieSElcxhtnPMIwxkzWEPVP"
+  integrity="sha384-RxiEjllZGgWMXt2YKWqJH7334vdGj+UHxOMP+TuBoQI5WjLtJL0B+Gg/GNO/hm/G"
 ></script>
 ```
 
