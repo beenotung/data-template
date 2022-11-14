@@ -31,6 +31,9 @@ text, disabled, readonly, open, hidden, show, value, checked, class, href, src, 
 <template data-name="article">
   <article>
     <h2 data-text="title"></h2>
+    <ul class="tags">
+      <li class="tag" data-text="tags"></li>
+    </ul>
     <p data-text="intro"></p>
     <a data-href="detail" data-class="highlight">Details</a>
   </article>
@@ -39,13 +42,25 @@ text, disabled, readonly, open, hidden, show, value, checked, class, href, src, 
 <script>
   renderTemplate(header)
 
+  getJSON('/articles').then(articles => renderTemplate(main, { articles }))
   /* sample data:
   [
-    { title: '...', intro: '...', detail: '/article.html?id=1', highlight: false },
-    { title: '...', intro: '...', detail: '/article.html?id=2', highlight: true },
+    {
+      title: '...',
+      tags: ['a', 'b'],
+      intro: '...',
+      detail: '/article.html?id=1',
+      highlight: false,
+    },
+    {
+      title: '...',
+      tags: [],
+      intro: '...',
+      detail: '/article.html?id=2',
+      highlight: true,
+    },
   ]
   */
-  getJSON('/articles').then(articles => renderTemplate(main, { articles }))
 </script>
 ```
 
