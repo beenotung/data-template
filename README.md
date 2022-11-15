@@ -101,9 +101,9 @@ function uploadForm(event_or_form);
 
 | Format         | File Size |
 | -------------- | --------- |
-| base.js        | 3.7 KB    |
-| base.min.js    | 1.8 KB    |
-| base.min.js.gz | 970 B     |
+| base.js        | 3.9 KB    |
+| base.min.js    | 1.9 KB    |
+| base.min.js.gz | 1001 B    |
 
 ## Get Started (with CDN)
 
@@ -111,9 +111,9 @@ Drop below line in your html:
 
 ```html
 <script
-  src="https://cdn.jsdelivr.net/npm/data-template@1.2.0/base.js"
+  src="https://cdn.jsdelivr.net/npm/data-template@1.2.1/base.js"
   crossorigin="anonymous"
-  integrity="sha384-QsXO2jHue7jcsKRhtkzSOB7BWbHnSzPDpRcuwzFPWqqlEFEwOkx5rZv7s9BJgbHL"
+  integrity="sha384-pIpxsfeo8XmN5+qGeucupfP8UDgy2tQKnJQp+rfq3F1G2Jn3oNWjgkn/Iur/KgJJ"
 ></script>
 ```
 
@@ -121,9 +121,9 @@ Or use the minified version:
 
 ```html
 <script
-  src="https://cdn.jsdelivr.net/npm/data-template@1.2.0/base.min.js"
+  src="https://cdn.jsdelivr.net/npm/data-template@1.2.1/base.min.js"
   crossorigin="anonymous"
-  integrity="sha384-RxiEjllZGgWMXt2YKWqJH7334vdGj+UHxOMP+TuBoQI5WjLtJL0B+Gg/GNO/hm/G"
+  integrity="sha384-58Lesjm+5rLLdnxIfjjWCoznZ9IoY/6f6ZUFB/wDSKl1d6z45KXpD4hO7CVuTxU7"
 ></script>
 ```
 

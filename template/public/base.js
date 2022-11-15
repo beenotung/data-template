@@ -52,11 +52,15 @@
             : (element[attr == 'text' ? 'textContent' : attr] = value)
         }
         if (Array.isArray(value)) {
-          let parent = element.parentElement
+          let last = element
           value.forEach(value => {
             let node = element.cloneNode(true)
             apply(node, value)
-            parent.appendChild(node)
+            if(value && typeof value == 'object'){
+              renderData(node, value)
+            }
+            last.insertAdjacentElement('afterend', node)
+            last = node
           })
           element.remove()
         } else {
