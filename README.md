@@ -9,7 +9,7 @@ Lightweight and minimal dom template helpers
 - [x] apply data into dom based on dataset (`data-*`) attributes
 - [x] auto repeat elements if the value is an array
 - [x] fetch and cache html template and api response with localStorage
-- [x] lightweight, [<1KB minified and gzipped](#size)
+- [x] lightweight, [1KB minified and gzipped](#size)
 
 **Supported `data-*` attributes**:
 
@@ -20,7 +20,7 @@ text, disabled, readonly, open, hidden, show, value, checked, class, href, src, 
 (For script tag with exact version and integrity checksum, see [below section](#get-started-with-cdn))
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/data-template@1/base.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/data-template@1.3/base.js"></script>
 
 <header id="header" data-template="header.html"></header>
 
@@ -85,10 +85,10 @@ function scanTemplates(rootElement, binds);
 
 ```javascript
 // return promise of string, cached with localStorage
-function getText(url, options);
+function getText(url, options, callback);
 
-// return promise of object, cached with localStorage
-function getJSON(url, options);
+// return promise of json value, cached with localStorage
+function getJSON(url, options, callback);
 
 // send ajax request in application/x-www-form-urlencoded, return promise of response
 function submitForm(event_or_form);
@@ -97,13 +97,29 @@ function submitForm(event_or_form);
 function uploadForm(event_or_form);
 ```
 
+For the `getText()` and `getJSON()` functions, the `options` and `cb` arguments are optional.
+
+The `options` object is the second argument passed to the `fetch` function.
+
+The `callback` function will be called with cached _and/or_ fetched data [(details)](#when-will-the-callback-function-be-called).
+
+If is recommended to provide `{ cache: 'reload' }` in the `options` or use callback function to receive the data if you want to avoid staled view.
+
+The returned promise can be used to do error handling.
+
+### When will the callback function be called
+
+If the fetching data is already cached by url, the callback will be called immediately.
+Then the data will be fetched no matter cached or not.
+If the newly fetched data is different from the cached data, the callback will be called again.
+
 ## Size
 
 | Format         | File Size |
 | -------------- | --------- |
-| base.js        | 3.9 KB    |
+| base.js        | 4.2 KB    |
 | base.min.js    | 1.9 KB    |
-| base.min.js.gz | 1001 B    |
+| base.min.js.gz | 1.0 KB    |
 
 ## Get Started (with CDN)
 
@@ -111,9 +127,9 @@ Drop below line in your html:
 
 ```html
 <script
-  src="https://cdn.jsdelivr.net/npm/data-template@1.2.1/base.js"
+  src="https://cdn.jsdelivr.net/npm/data-template@1.3.0/base.js"
   crossorigin="anonymous"
-  integrity="sha384-pIpxsfeo8XmN5+qGeucupfP8UDgy2tQKnJQp+rfq3F1G2Jn3oNWjgkn/Iur/KgJJ"
+  integrity="sha384-DqNbfveYhUgRVFgUkpdtmKv/85xphU3eJOcujPKHraWbbVy7lcDKQAmUh4cEWe2O"
 ></script>
 ```
 
@@ -121,9 +137,9 @@ Or use the minified version:
 
 ```html
 <script
-  src="https://cdn.jsdelivr.net/npm/data-template@1.2.1/base.min.js"
+  src="https://cdn.jsdelivr.net/npm/data-template@1.3.0/base.min.js"
   crossorigin="anonymous"
-  integrity="sha384-58Lesjm+5rLLdnxIfjjWCoznZ9IoY/6f6ZUFB/wDSKl1d6z45KXpD4hO7CVuTxU7"
+  integrity="sha384-DEY0qvVb0bBGvh+JafBl7kesDVmHlMCnCjThqMs6M9mQQ+HxH/uzvlNOp7eMpCGh"
 ></script>
 ```
 

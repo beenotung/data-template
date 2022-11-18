@@ -41,7 +41,7 @@
     <script>
       renderTemplate(header)
       renderTemplate(footer)
-      getJSON('/article' + location.search).then(article => {
+      getJSON('/article' + location.search, article => {
         renderTemplate(main, { article })
       })
     </script>

@@ -156,7 +156,7 @@
     <script src="base.js"></script>
     <script>
       function loadArticles(options) {
-        getJSON('/articles', options).then(articles => {
+        getJSON('/articles', options, articles => {
           articles.forEach(article => {
             article.showDetail = () => showDetail(article)
           })

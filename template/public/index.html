@@ -95,7 +95,7 @@
       renderTemplate(header) // or apply template on specific element
       renderTemplate(footer)
       /* see articles in server/main.ts */
-      getJSON('/articles').then(articles => {
+      getJSON('/articles', articles => {
         articles.forEach(article => {
           article.seeMore = event => seeMore(event, article.id)
         })

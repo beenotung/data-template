@@ -12,6 +12,13 @@
     }
   }
 
+  let parse = JSON.parse
+
+  let useGet = use => (url, options, cb) =>
+    typeof options === 'function'
+      ? use(url, {}, options)
+      : use(url, options, cb)
+
   let toForm = (event_or_form = event) => {
     if (event_or_form instanceof HTMLFormElement) {
       return event_or_form
@@ -56,7 +63,7 @@
           value.forEach(value => {
             let node = element.cloneNode(true)
             apply(node, value)
-            if(value && typeof value == 'object'){
+            if (value && typeof value == 'object') {
               renderData(node, value)
             }
             last.insertAdjacentElement('afterend', node)
@@ -95,16 +102,29 @@
       .querySelectorAll(`[data-${t}]`)
       .forEach(host => renderTemplate(host, binds))
 
-  win.getText = async (url, options) => {
+  win.getText = useGet(async (url, options, cb) => {
     let text = localStorage.getItem(url)
     let p = fetch(url, options).then(res => res.text())
-    p.then(text => localStorage.setItem(url, text))
     let cache = options && options.cache
     let skipCache = cache && cache != 'force-cache'
-    return skipCache ? p : text || p
-  }
+    p.then(newText => {
+      if (skipCache || newText !== text) {
+        cb(newText)
+      }
+      if (newText !== text) {
+        localStorage.setItem(url, newText)
+      }
+    })
+    if (!skipCache && text) {
+      cb(text)
+      return text
+    }
+    return p
+  })
 
-  win.getJSON = (url, options) => getText(url, options).then(JSON.parse)
+  win.getJSON = useGet((url, options, cb) =>
+    getText(url, options, cb && (text => cb(parse(text)))).then(parse),
+  )
 
   win.submitForm = event_or_form => {
     let form = toForm(event_or_form)
