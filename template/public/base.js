@@ -82,18 +82,23 @@
     let template
     if (name.endsWith('.html')) {
       template = document.createElement(t)
-      // deepcode ignore DOMXSS: the template is authored by the application developer, not from untrusted users
-      template.innerHTML = await getText(name)
+      getText(name, html => {
+        // deepcode ignore DOMXSS: the template is authored by the application developer, not from untrusted users
+        template.innerHTML = html
+        next()
+      })
     } else {
       template = document.querySelector(`${t}[data-name="${name}"]`)
-      if (!template) return console.error(t, `not found:`, name)
+      template ? next() : console.error(t, `not found:`, name)
     }
-    let values = binds[host.dataset.bind]
-    host.textContent = ''
-    if (Array.isArray(values)) {
-      values.forEach(values => bindTemplate(host, template, values))
-    } else {
-      bindTemplate(host, template, values)
+    function next() {
+      let values = binds[host.dataset.bind]
+      host.textContent = ''
+      if (Array.isArray(values)) {
+        values.forEach(values => bindTemplate(host, template, values))
+      } else {
+        bindTemplate(host, template, values)
+      }
     }
   }
 
@@ -108,7 +113,7 @@
     let cache = options && options.cache
     let skipCache = cache && cache != 'force-cache'
     p.then(newText => {
-      if (skipCache || newText !== text) {
+      if (cb && (skipCache || newText !== text)) {
         cb(newText)
       }
       if (newText !== text) {
@@ -116,7 +121,7 @@
       }
     })
     if (!skipCache && text) {
-      cb(text)
+      cb?.(text)
       return text
     }
     return p
