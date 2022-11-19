@@ -117,7 +117,7 @@ If the newly fetched data is different from the cached data, the callback will b
 
 | Format         | File Size |
 | -------------- | --------- |
-| base.js        | 4.3 KB    |
+| base.js        | 4.4 KB    |
 | base.min.js    | 2.0 KB    |
 | base.min.js.gz | 1.1 KB    |
 
@@ -127,9 +127,9 @@ Drop below line in your html:
 
 ```html
 <script
-  src="https://cdn.jsdelivr.net/npm/data-template@1.3.1/base.js"
+  src="https://cdn.jsdelivr.net/npm/data-template@1.3.2/base.js"
   crossorigin="anonymous"
-  integrity="sha384-7WoZqb/KRoFtcHIK1DvLriaLc4SLt3lZKE4Dxz+Nn7f2DpwzIqviOEXv2KZq5p7B"
+  integrity="sha384-NR8so+JL+gXG/KxGIuBoJmj4RBi2zgm6FCQwqslJ+JxPW6UTbiSXptjJsCUaq3vG"
 ></script>
 ```
 
@@ -137,9 +137,9 @@ Or use the minified version:
 
 ```html
 <script
-  src="https://cdn.jsdelivr.net/npm/data-template@1.3.1/base.min.js"
+  src="https://cdn.jsdelivr.net/npm/data-template@1.3.2/base.min.js"
   crossorigin="anonymous"
-  integrity="sha384-7O389jK37ubE9u/loJ3ww7pAlzrsUwDiYnaE9S+/HEoE9qpvh29Xhg4is/58s0fx"
+  integrity="sha384-lWp2LtRYllvQuyy0BKLpqzPh7aiHWxC2jkDRbUmK0GRqx3jRt0QsXa+B+dSwlsAP"
 ></script>
 ```
 
