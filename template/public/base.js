@@ -30,6 +30,7 @@
   win.renderData = (container, values) => {
     for (let attr of [
       'class',
+      'id',
       'text',
       'disabled',
       'readonly',

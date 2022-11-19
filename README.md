@@ -13,7 +13,7 @@ Lightweight and minimal dom template helpers
 
 **Supported `data-*` attributes**:
 
-text, disabled, readonly, open, hidden, show, value, checked, class, href, src, alt, title, onclick
+text, disabled, readonly, open, hidden, show, value, checked, class, id, href, src, alt, title, onclick
 
 ## Quick Example with CDN
 
