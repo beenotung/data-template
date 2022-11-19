@@ -47,6 +47,12 @@
     ]) {
       container.querySelectorAll(`[data-${attr}]`).forEach(element => {
         let key = element.dataset[attr]
+        if (!(key in values)) {
+          if (attr == 'show') {
+            element.hidden = true
+          }
+          return
+        }
         let value = values[key]
         let apply = (element, value) => {
           attr == 'class'
