@@ -117,8 +117,8 @@ If the newly fetched data is different from the cached data, the callback will b
 
 | Format         | File Size |
 | -------------- | --------- |
-| base.js        | 4.4 KB    |
-| base.min.js    | 2.0 KB    |
+| base.js        | 4.2 KB    |
+| base.min.js    | 2.1 KB    |
 | base.min.js.gz | 1.1 KB    |
 
 ## Get Started (with CDN)
@@ -127,9 +127,9 @@ Drop below line in your html:
 
 ```html
 <script
-  src="https://cdn.jsdelivr.net/npm/data-template@1.3.2/base.js"
+  src="https://cdn.jsdelivr.net/npm/data-template@1.3.3/base.js"
   crossorigin="anonymous"
-  integrity="sha384-NR8so+JL+gXG/KxGIuBoJmj4RBi2zgm6FCQwqslJ+JxPW6UTbiSXptjJsCUaq3vG"
+  integrity="sha384-xnNcbgeax8nKLhvQS5SyplgrjhJ5wdVuhNDMlHKSlK18KPuOY7l90CCT2Rr9v/Zz"
 ></script>
 ```
 
@@ -137,9 +137,9 @@ Or use the minified version:
 
 ```html
 <script
-  src="https://cdn.jsdelivr.net/npm/data-template@1.3.2/base.min.js"
+  src="https://cdn.jsdelivr.net/npm/data-template@1.3.3/base.min.js"
   crossorigin="anonymous"
-  integrity="sha384-lWp2LtRYllvQuyy0BKLpqzPh7aiHWxC2jkDRbUmK0GRqx3jRt0QsXa+B+dSwlsAP"
+  integrity="sha384-Zac579q/rmt+utHp83IRqNBrWFHiFCNTeh52/nAPUnoCSaswFPKuX3cfK+SH91I9"
 ></script>
 ```
 
