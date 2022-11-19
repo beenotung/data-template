@@ -19,13 +19,10 @@
       ? use(url, {}, options)
       : use(url, options, cb)
 
-  let toForm = (event_or_form = event) => {
-    if (event_or_form instanceof HTMLFormElement) {
-      return event_or_form
-    }
-    event_or_form.preventDefault()
-    return event_or_form.target
-  }
+  let toForm = (event_or_form = event) =>
+    event_or_form instanceof HTMLFormElement
+      ? event_or_form
+      : (event_or_form.preventDefault(), event_or_form.target)
 
   win.renderData = (container, values) => {
     for (let attr of [
@@ -47,12 +44,7 @@
     ]) {
       container.querySelectorAll(`[data-${attr}]`).forEach(element => {
         let key = element.dataset[attr]
-        if (!(key in values)) {
-          if (attr == 'show') {
-            element.hidden = true
-          }
-          return
-        }
+        if (!(key in values)) return attr == 'show' && (element.hidden = true)
         let value = values[key]
         let apply = (element, value) => {
           attr == 'class'
@@ -65,21 +57,16 @@
             ? (element[attr] = !!value)
             : (element[attr == 'text' ? 'textContent' : attr] = value)
         }
-        if (Array.isArray(value)) {
-          let last = element
-          value.forEach(value => {
-            let node = element.cloneNode(true)
-            apply(node, value)
-            if (value && typeof value == 'object') {
-              renderData(node, value)
-            }
-            last.insertAdjacentElement('afterend', node)
-            last = node
-          })
-          element.remove()
-        } else {
-          apply(element, value)
-        }
+        if (!Array.isArray(value)) return apply(element, value)
+        let last = element
+        value.forEach(value => {
+          let node = element.cloneNode(true)
+          apply(node, value)
+          value && typeof value == 'object' && renderData(node, value)
+          last.insertAdjacentElement('afterend', node)
+          last = node
+        })
+        element.remove()
       })
     }
   }
@@ -101,11 +88,9 @@
     function next() {
       let values = binds[host.dataset.bind]
       host.textContent = ''
-      if (Array.isArray(values)) {
-        values.forEach(values => bindTemplate(host, template, values))
-      } else {
-        bindTemplate(host, template, values)
-      }
+      Array.isArray(values)
+        ? values.forEach(values => bindTemplate(host, template, values))
+        : bindTemplate(host, template, values)
     }
   }
 
@@ -120,18 +105,11 @@
     let cache = options && options.cache
     let skipCache = cache && cache != 'force-cache'
     p.then(newText => {
-      if (cb && (skipCache || newText !== text)) {
-        cb(newText)
-      }
-      if (newText !== text) {
-        localStorage.setItem(url, newText)
-      }
+      let diff = newText != text
+      ;(skipCache || diff) && cb?.(newText)
+      diff && localStorage.setItem(url, newText)
     })
-    if (!skipCache && text) {
-      cb?.(text)
-      return text
-    }
-    return p
+    return !skipCache && text ? (cb?.(text), text) : p
   })
 
   win.getJSON = useGet((url, options, cb) =>
@@ -141,11 +119,9 @@
   win.submitForm = event_or_form => {
     let form = toForm(event_or_form)
     let params = new URLSearchParams()
-    for (let input of form.elements) {
-      if (input.name && (input.type != 'checkbox' || input.checked)) {
+    for (let input of form.elements)
+      if (input.name && (input.type != 'checkbox' || input.checked))
         params.append(input.name, input.value)
-      }
-    }
     return fetch(form.action, {
       method: form.method,
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
