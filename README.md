@@ -90,6 +90,9 @@ function getText(url, options, callback);
 // return promise of json value, cached with localStorage
 function getJSON(url, options, callback);
 
+// send ajax request in application/json, return promise of response
+function submitJSON(event_or_form);
+
 // send ajax request in application/x-www-form-urlencoded, return promise of response
 function submitForm(event_or_form);
 

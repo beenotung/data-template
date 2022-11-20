@@ -116,6 +116,19 @@
     getText(url, options, cb && (text => cb(parse(text)))).then(parse),
   )
 
+  win.submitJSON = event_or_form => {
+    let form = toForm(event_or_form)
+    let body = {}
+    for (let input of form.elements)
+      if (input.name && (input.type != 'checkbox' || input.checked))
+        body[input.name] = input.value
+    return fetch(form.action, {
+      method: form.method,
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body),
+    })
+  }
+
   win.submitForm = event_or_form => {
     let form = toForm(event_or_form)
     let params = new URLSearchParams()
