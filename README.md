@@ -20,7 +20,7 @@ text, disabled, readonly, open, hidden, show, value, checked, class, id, href, s
 (For script tag with exact version and integrity checksum, see [below section](#get-started-with-cdn))
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/data-template@1.3/base.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/data-template@1.4/base.js"></script>
 
 <header id="header" data-template="header.html"></header>
 
@@ -120,9 +120,9 @@ If the newly fetched data is different from the cached data, the callback will b
 
 | Format         | File Size |
 | -------------- | --------- |
-| base.js        | 4.2 KB    |
-| base.min.js    | 2.1 KB    |
-| base.min.js.gz | 1.1 KB    |
+| base.js        | 4.6 KB    |
+| base.min.js    | 2.3 KB    |
+| base.min.js.gz | 1.2 KB    |
 
 ## Get Started (with CDN)
 
@@ -130,9 +130,9 @@ Drop below line in your html:
 
 ```html
 <script
-  src="https://cdn.jsdelivr.net/npm/data-template@1.3.3/base.js"
+  src="https://cdn.jsdelivr.net/npm/data-template@1.4.0/base.js"
   crossorigin="anonymous"
-  integrity="sha384-xnNcbgeax8nKLhvQS5SyplgrjhJ5wdVuhNDMlHKSlK18KPuOY7l90CCT2Rr9v/Zz"
+  integrity="sha384-NEq95WPLXyTrvWxMguB6PuXs9qApcEqN+82PKNPnL60p8izIMakflNc+n5qXa02O"
 ></script>
 ```
 
@@ -140,9 +140,9 @@ Or use the minified version:
 
 ```html
 <script
-  src="https://cdn.jsdelivr.net/npm/data-template@1.3.3/base.min.js"
+  src="https://cdn.jsdelivr.net/npm/data-template@1.4.0/base.min.js"
   crossorigin="anonymous"
-  integrity="sha384-Zac579q/rmt+utHp83IRqNBrWFHiFCNTeh52/nAPUnoCSaswFPKuX3cfK+SH91I9"
+  integrity="sha384-v2+6GP6fyH4Vg27HpI5FCXiLyXV1gjZWos1yX/bFd/vexsrAATHQkwK/wuWRnc2x"
 ></script>
 ```
 
