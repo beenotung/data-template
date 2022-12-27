@@ -105,6 +105,20 @@ app.post('/articles', (req, res) => {
   res.json({ id })
 })
 
+let counter = 0
+app.get('/counter', (req, res) => {
+  res.json(counter)
+})
+app.post('/counter/inc', (req, res) => {
+  res.json(++counter)
+})
+app.post('/counter/dec', (req, res) => {
+  res.json(--counter)
+})
+app.patch('/counter', (req, res) => {
+  res.json((counter = req.body.value))
+})
+
 let errorHandler: express.ErrorRequestHandler = (error, req, res, next) => {
   console.error(error)
   res.status(error.status || 500)

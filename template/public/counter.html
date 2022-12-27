@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script src="base.js"></script>
+    <div>
+      <button onclick="dec()">-</button>
+      <span id="count"></span>
+      <button onclick="inc()">+</button>
+    </div>
+    <div>
+      <label>
+        <button onclick="overwrite()">overwrite value</button>:
+        <input id="input" type="number" />
+      </label>
+    </div>
+    <script>
+      getJSON('/counter', counter => (count.textContent = counter))
+      function updateValue(res) {
+        res.json().then(value => (count.textContent = value))
+      }
+      function inc() {
+        postJSON('/counter/inc', {}).then(updateValue)
+      }
+      function dec() {
+        postJSON('/counter/dec', {}).then(updateValue)
+      }
+      function overwrite() {
+        patchJSON('/counter', { value: input.valueAsNumber }).then(updateValue)
+      }
+    </script>
+  </body>
+</html>
