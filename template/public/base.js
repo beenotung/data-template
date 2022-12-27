@@ -24,6 +24,13 @@
       ? event_or_form
       : (event_or_form.preventDefault(), event_or_form.target)
 
+  let fetchJSON = method => (url, body) =>
+    fetch(url, {
+      method,
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body),
+    })
+
   win.renderData = (container, values) => {
     for (let attr of [
       'class',
@@ -122,11 +129,7 @@
     for (let input of form.elements)
       if (input.name && (input.type != 'checkbox' || input.checked))
         body[input.name] = input.value
-    return fetch(form.action, {
-      method: form.method,
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(body),
-    })
+    return fetchJSON(form.method)(form.action, body)
   }
 
   win.submitForm = event_or_form => {
@@ -149,4 +152,8 @@
       body: new FormData(form),
     })
   }
+
+  win.postJSON = fetchJSON('POST')
+  win.patchJSON = fetchJSON('PATCH')
+  win.putJSON = fetchJSON('PUT')
 })(window)

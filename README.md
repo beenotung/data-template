@@ -98,6 +98,11 @@ function submitForm(event_or_form): Promise<Response>
 
 // submit form with ajax request in multipart/form-data
 function uploadForm(event_or_form): Promise<Response>
+
+// send ajax request in application/json
+function postJSON(url, body): Promise<Response>
+function patchJSON(url, body): Promise<Response>
+function putJSON(url, body): Promise<Response>
 ```
 
 For the `getText()` and `getJSON()` functions, the `options` and `cb` arguments are optional.
@@ -120,7 +125,7 @@ If the newly fetched data is different from the cached data, the callback will b
 
 | Format         | File Size |
 | -------------- | --------- |
-| base.js        | 4.6 KB    |
+| base.js        | 4.7 KB    |
 | base.min.js    | 2.3 KB    |
 | base.min.js.gz | 1.2 KB    |
 
