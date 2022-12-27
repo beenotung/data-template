@@ -90,14 +90,14 @@ function getText(url, options, callback);
 // return promise of json value, cached with localStorage
 function getJSON(url, options, callback);
 
-// send ajax request in application/json, return promise of response
-function submitJSON(event_or_form);
+// submit form with ajax request in application/json
+function submitJSON(event_or_form): Promise<Response>
 
-// send ajax request in application/x-www-form-urlencoded, return promise of response
-function submitForm(event_or_form);
+// submit form with ajax request in application/x-www-form-urlencoded
+function submitForm(event_or_form): Promise<Response>
 
-// send ajax request in multipart/form-data, return promise of response
-function uploadForm(event_or_form);
+// submit form with ajax request in multipart/form-data
+function uploadForm(event_or_form): Promise<Response>
 ```
 
 For the `getText()` and `getJSON()` functions, the `options` and `cb` arguments are optional.
