@@ -135,9 +135,9 @@ Drop below line in your html:
 
 ```html
 <script
-  src="https://cdn.jsdelivr.net/npm/data-template@1.5.0/base.js"
+  src="https://cdn.jsdelivr.net/npm/data-template@1.5.2/base.js"
   crossorigin="anonymous"
-  integrity="sha384-WzWqGULLEfZOWsR8olKuhg2s6Q2hMKb1vP5rkCFCn15rlCO477nPv4a/yGI/dUsv"
+  integrity="sha384-M2HAuofkVxGT7s7XP12VL+R9FINysWOh9PF3DMNcZ1EC1vAUFuXB9BPMJtJNqglX"
 ></script>
 ```
 
@@ -145,9 +145,9 @@ Or use the minified version:
 
 ```html
 <script
-  src="https://cdn.jsdelivr.net/npm/data-template@1.5.0/base.min.js"
+  src="https://cdn.jsdelivr.net/npm/data-template@1.5.2/base.min.js"
   crossorigin="anonymous"
-  integrity="sha384-KlZgGfvJ9BfctZVzZGoZQStBDh4gI2QqEtvdoS7Xhdgskf7Xf7F8F/hh9TBKhU+M"
+  integrity="sha384-hSS9EageFo/NJMhv8f98dsp9+EiC3pukdBX1C8YlZjsFbOAMTGAtXfYEMXYqCpwU"
 ></script>
 ```
 
