@@ -43,6 +43,7 @@
       'show',
       'value',
       'checked',
+      'selected',
       'href',
       'src',
       'alt',
@@ -60,7 +61,7 @@
             ? (element.hidden = !value)
             : attr == 'readonly'
             ? (element.readOnly = !!value)
-            : attr == 'open' || attr == 'checked'
+            : attr == 'open' || attr == 'checked' || attr == 'selected'
             ? (element[attr] = !!value)
             : (element[attr == 'text' ? 'textContent' : attr] = value)
         }

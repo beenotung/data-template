@@ -13,7 +13,7 @@ Lightweight and minimal dom template helpers
 
 **Supported `data-*` attributes**:
 
-text, disabled, readonly, open, hidden, show, value, checked, class, id, href, src, alt, title, onclick
+text, disabled, readonly, open, hidden, show, value, checked, selected, class, id, href, src, alt, title, onclick
 
 ## Quick Example with CDN
 
@@ -125,7 +125,7 @@ If the newly fetched data is different from the cached data, the callback will b
 
 | Format         | File Size |
 | -------------- | --------- |
-| base.js        | 4.7 KB    |
+| base.js        | 4.8 KB    |
 | base.min.js    | 2.3 KB    |
 | base.min.js.gz | 1.2 KB    |
 
