@@ -1,6 +1,6 @@
 # data-template
 
-Lightweight and minimal dom template helpers
+Lightweight and minimal HTML template helpers powered by native DOM
 
 [![npm Package Version](https://img.shields.io/npm/v/data-template)](https://www.npmjs.com/package/data-template)
 
