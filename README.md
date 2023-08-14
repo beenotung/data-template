@@ -20,7 +20,7 @@ text, disabled, readonly, open, hidden, show, value, checked, selected, class, i
 (For script tag with exact version and integrity checksum, see [below section](#get-started-with-cdn))
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/data-template@1.5/base.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/data-template@1.6/base.js"></script>
 
 <header id="header" data-template="header.html"></header>
 
@@ -138,9 +138,9 @@ Drop below line in your html:
 
 ```html
 <script
-  src="https://cdn.jsdelivr.net/npm/data-template@1.5.2/base.js"
+  src="https://cdn.jsdelivr.net/npm/data-template@1.6.0/base.js"
   crossorigin="anonymous"
-  integrity="sha384-M2HAuofkVxGT7s7XP12VL+R9FINysWOh9PF3DMNcZ1EC1vAUFuXB9BPMJtJNqglX"
+  integrity="sha384-eSkWvlwQB/6avFGVCxGwsePqrkQObsaGXrAPPb/Pdp3PyUE9JRYgGA4KUJKsxDta"
 ></script>
 ```
 
@@ -148,9 +148,9 @@ Or use the minified version:
 
 ```html
 <script
-  src="https://cdn.jsdelivr.net/npm/data-template@1.5.2/base.min.js"
+  src="https://cdn.jsdelivr.net/npm/data-template@1.6.0/base.min.js"
   crossorigin="anonymous"
-  integrity="sha384-hSS9EageFo/NJMhv8f98dsp9+EiC3pukdBX1C8YlZjsFbOAMTGAtXfYEMXYqCpwU"
+  integrity="sha384-Cgo8uDame4MRIKqNBNjhZ+7W8ji/g2qX2By3RYTb8n7SsyXWZTsv9Le4687mqM9L"
 ></script>
 ```
 
