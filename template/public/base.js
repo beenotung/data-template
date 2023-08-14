@@ -107,6 +107,13 @@
       .querySelectorAll(`[data-${t}]`)
       .forEach(host => renderTemplate(host, binds))
 
+  w.fillForm = (form, o) => {
+    for (let k in o) {
+      let e = form[k]
+      if (e) e.value = o[k]
+    }
+  }
+
   w.getText = useGet(async (url, options, cb) => {
     let text = localStorage.getItem(url)
     let p = fetch(url, options).then(res => res.text())
