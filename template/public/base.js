@@ -108,10 +108,8 @@
       .forEach(host => renderTemplate(host, binds))
 
   w.fillForm = (form, o) => {
-    for (let k in o) {
-      let e = form[k]
-      if (e) e.value = o[k]
-    }
+    let e
+    for (let k in o) (e = form[k]) && (e.value = o[k])
   }
 
   w.getText = useGet(async (url, options, cb) => {
