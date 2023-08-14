@@ -1,4 +1,4 @@
-;(win => {
+;(w => {
   // shortcuts to reduce minified size
   let t = 'template'
 
@@ -31,7 +31,7 @@
       body: JSON.stringify(body),
     })
 
-  win.renderData = (container, values) => {
+  w.renderData = (container, values) => {
     for (let attr of [
       'class',
       'id',
@@ -79,7 +79,7 @@
     }
   }
 
-  win.renderTemplate = async (host, binds = {}) => {
+  w.renderTemplate = async (host, binds = {}) => {
     let name = host.dataset.template
     let template
     if (name.endsWith('.html')) {
@@ -102,12 +102,12 @@
     }
   }
 
-  win.scanTemplates = (root = document.body, binds = {}) =>
+  w.scanTemplates = (root = document.body, binds = {}) =>
     root
       .querySelectorAll(`[data-${t}]`)
       .forEach(host => renderTemplate(host, binds))
 
-  win.getText = useGet(async (url, options, cb) => {
+  w.getText = useGet(async (url, options, cb) => {
     let text = localStorage.getItem(url)
     let p = fetch(url, options).then(res => res.text())
     let cache = options && options.cache
@@ -120,11 +120,11 @@
     return !skipCache && text ? (cb?.(text), text) : p
   })
 
-  win.getJSON = useGet((url, options, cb) =>
+  w.getJSON = useGet((url, options, cb) =>
     getText(url, options, cb && (text => cb(parse(text)))).then(parse),
   )
 
-  win.submitJSON = event_or_form => {
+  w.submitJSON = event_or_form => {
     let form = toForm(event_or_form)
     let body = {}
     for (let input of form.elements)
@@ -133,7 +133,7 @@
     return fetchJSON(form.method)(form.action, body)
   }
 
-  win.submitForm = event_or_form => {
+  w.submitForm = event_or_form => {
     let form = toForm(event_or_form)
     let params = new URLSearchParams()
     for (let input of form.elements)
@@ -146,7 +146,7 @@
     })
   }
 
-  win.uploadForm = event_or_form => {
+  w.uploadForm = event_or_form => {
     let form = toForm(event_or_form)
     return fetch(form.action, {
       method: form.method,
@@ -154,7 +154,7 @@
     })
   }
 
-  win.postJSON = fetchJSON('POST')
-  win.patchJSON = fetchJSON('PATCH')
-  win.putJSON = fetchJSON('PUT')
+  w.postJSON = fetchJSON('POST')
+  w.patchJSON = fetchJSON('PATCH')
+  w.putJSON = fetchJSON('PUT')
 })(window)
