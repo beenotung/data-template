@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .radio-group,
+      form label input:not([type='radio']) {
+        display: block;
+        margin-top: 0.25rem;
+        margin-bottom: 1rem;
+      }
+      input[type='submit'] {
+        display: block;
+        margin-block-start: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <script src="base.js"></script>
+
+    <form
+      method="POST"
+      action="/profile"
+      id="profileForm"
+      data-template="form"
+      data-bind="profile"
+    ></form>
+    <template data-name="form">
+      <label>
+        Username:
+        <input type="text" name="username" />
+      </label>
+      <div>
+        Size:
+        <div class="radio-group">
+          <label><input type="radio" name="size" value="S" /> Small </label>
+          <label><input type="radio" name="size" value="M" /> Middle </label>
+          <label><input type="radio" name="size" value="L" /> Large </label>
+        </div>
+      </div>
+      <label>
+        Address:
+        <input type="text" name="address" />
+      </label>
+      <label>
+        District:
+        <select
+          name="district_id"
+          data-template="option"
+          data-bind="districts"
+        ></select>
+      </label>
+      <input type="submit" value="Update Profile" class="input" />
+    </template>
+    <template data-name="option">
+      <option data-value="id" data-text="name"></option>
+    </template>
+    <script>
+      let json = {
+        profile: {
+          user_id: 1,
+          username: 'alice',
+          address: 'sesame street',
+          size: 'M',
+          district_id: 3,
+        },
+        districts: [
+          { id: 1, name: 'Earth' },
+          { id: 2, name: 'Mars' },
+          { id: 3, name: 'Mercury' },
+          { id: 4, name: 'Moon' },
+        ],
+      }
+      renderTemplate(profileForm, json)
+      renderTemplate(profileForm.district_id, json)
+      fillForm(profileForm, json.profile)
+    </script>
+  </body>
+</html>
