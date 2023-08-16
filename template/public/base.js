@@ -116,6 +116,18 @@
     for (let k in o) (e = form[k]) && (e.value = o[k])
   }
 
+  w.d2 = x => x < 10 ? '0' + x : x
+
+  w.toInputDate = date => {
+    let d = new Date(date)
+    return d.getFullYear() + '-' + d2(d.getMonth() + 1) + '-' + d2(d.getDate())
+  }
+
+  w.toInputTime = date => {
+    let d = new Date(date)
+    return d2(d.getHours()) + ':' + d2(d.getMinutes())
+  }
+
   w.getText = useGet(async (url, options, cb) => {
     let text = localStorage.getItem(url)
     let p = fetch(url, options).then(res => res.text())

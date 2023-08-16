@@ -93,6 +93,19 @@ function scanTemplates(rootElement, binds);
 function fillForm(form, object);
 ```
 
+**Format Functions**:
+
+```javascript
+// prepend '0' of the number is less than ten
+function d2(number);
+
+// convert to 'YYYY-MM-DD' format for input[type=date]
+function toInputDate(date_or_time_or_string);
+
+// convert to 'HH:mm' format for input[type=time]
+function toInputTime(date_or_time_or_string);
+```
+
 **AJAX Functions**:
 
 ```javascript
