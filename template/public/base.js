@@ -58,7 +58,9 @@
         let value = values[key]
         let apply = (element, value) => {
           attr == 'class'
-            ? element.classList.add(value == true ? key : value)
+            ? value == true
+              ? element.classList.add(key)
+              : value && element.classList.add(...value.split(' '))
             : attr == 'show'
             ? (element.hidden = !value)
             : attr == 'readonly'
