@@ -151,9 +151,9 @@ If the newly fetched data is different from the cached data, the callback will b
 
 | Format         | File Size |
 | -------------- | --------- |
-| base.js        | 4.9 KB    |
-| base.min.js    | 2.4 KB    |
-| base.min.js.gz | 1.2 KB    |
+| base.js        | 5.1 KB    |
+| base.min.js    | 2.6 KB    |
+| base.min.js.gz | 1.3 KB    |
 
 ## Get Started (with CDN)
 
@@ -161,9 +161,9 @@ Drop below line in your html:
 
 ```html
 <script
-  src="https://cdn.jsdelivr.net/npm/data-template@1.6.0/base.js"
+  src="https://cdn.jsdelivr.net/npm/data-template@1.7.0/base.js"
   crossorigin="anonymous"
-  integrity="sha384-eSkWvlwQB/6avFGVCxGwsePqrkQObsaGXrAPPb/Pdp3PyUE9JRYgGA4KUJKsxDta"
+  integrity="sha384-wxF2rFDkM0sJJWkyWyveJPAB+O99FWdpRgWEMuxrzbDXzrwIpNqiLr/b4y2w1pVU"
 ></script>
 ```
 
@@ -171,9 +171,9 @@ Or use the minified version:
 
 ```html
 <script
-  src="https://cdn.jsdelivr.net/npm/data-template@1.6.0/base.min.js"
+  src="https://cdn.jsdelivr.net/npm/data-template@1.7.0/base.min.js"
   crossorigin="anonymous"
-  integrity="sha384-Cgo8uDame4MRIKqNBNjhZ+7W8ji/g2qX2By3RYTb8n7SsyXWZTsv9Le4687mqM9L"
+  integrity="sha384-qBas1VJGwAQtc5/H8aFMuRcv+hfJi6TPNB7cCWE/R4X6By+oiWpr3QorOBYZX+Ac"
 ></script>
 ```
 
