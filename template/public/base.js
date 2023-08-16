@@ -144,14 +144,10 @@
 
   w.submitForm = event_or_form => {
     let form = toForm(event_or_form)
-    let params = new URLSearchParams()
-    for (let input of form.elements)
-      if (input.name && (input.type != 'checkbox' || input.checked))
-        params.append(input.name, input.value)
     return fetch(form.action, {
       method: form.method,
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: params.toString(),
+      body: new URLSearchParams(new FormData(form)),
     })
   }
 
