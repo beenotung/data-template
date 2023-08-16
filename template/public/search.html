@@ -1,0 +1,10 @@
+<script src="base.js"></script>
+<form action="/search" onsubmit="submitForm(event).then(handleSearchRes)">
+  <input name="q" />
+  <button>search</button>
+</form>
+<script>
+  function handleSearchRes(res) {
+    console.log('res:', res)
+  }
+</script>

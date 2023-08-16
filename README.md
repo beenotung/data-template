@@ -105,7 +105,7 @@ function getJSON(url, options, callback);
 // submit form with ajax request in application/json
 function submitJSON(event_or_form): Promise<Response>
 
-// submit form with ajax request in application/x-www-form-urlencoded
+// submit form with ajax request in application/x-www-form-urlencoded or url search parameters
 function submitForm(event_or_form): Promise<Response>
 
 // submit form with ajax request in multipart/form-data

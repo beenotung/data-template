@@ -144,11 +144,15 @@
 
   w.submitForm = event_or_form => {
     let form = toForm(event_or_form)
-    return fetch(form.action, {
-      method: form.method,
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams(new FormData(form)),
-    })
+    let body = new URLSearchParams(new FormData(form))
+    let { method, action } = form
+    return method == 'get'
+      ? fetch(action + '?' + body)
+      : fetch(action, {
+          method,
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body,
+        })
   }
 
   w.uploadForm = event_or_form => {
