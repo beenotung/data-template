@@ -52,33 +52,33 @@
       'onsubmit',
       'onclick',
     ]) {
-      container.querySelectorAll(`[data-${attr}]`).forEach(element => {
-        let key = element.dataset[attr]
-        if (!(key in values)) return attr == 'show' && (element.hidden = true)
+      container.querySelectorAll(`[data-${attr}]`).forEach(e => {
+        let key = e.dataset[attr]
+        if (!(key in values)) return attr == 'show' && (e.hidden = true)
         let value = values[key]
-        let apply = (element, value) => {
+        let apply = (e, v) => {
           attr == 'class'
-            ? value == true
-              ? element.classList.add(key)
-              : value && element.classList.add(...value.split(' '))
+            ? v == true
+              ? e.classList.add(key)
+              : v && e.classList.add(...v.split(' '))
             : attr == 'show'
-            ? (element.hidden = !value)
+            ? (e.hidden = !v)
             : attr == 'readonly'
-            ? (element.readOnly = !!value)
+            ? (e.readOnly = !!v)
             : attr == 'open' || attr == 'checked' || attr == 'selected'
-            ? (element[attr] = !!value)
-            : (element[attr == 'text' ? 'textContent' : attr] = value)
+            ? (e[attr] = !!v)
+            : (e[attr == 'text' ? 'textContent' : attr] = v)
         }
-        if (!Array.isArray(value)) return apply(element, value)
-        let last = element
+        if (!Array.isArray(value)) return apply(e, value)
+        let last = e
         value.forEach(value => {
-          let node = element.cloneNode(true)
+          let node = e.cloneNode(true)
           apply(node, value)
           value && typeof value == 'object' && renderData(node, value)
           last.insertAdjacentElement('afterend', node)
           last = node
         })
-        element.remove()
+        e.remove()
       })
     }
   }
