@@ -13,7 +13,16 @@ Lightweight and minimal HTML template helpers powered by native DOM
 
 **Supported `data-*` attributes**:
 
-text, disabled, readonly, open, hidden, show, value, checked, selected, class, id, href, src, alt, title, onclick
+| category | attributes                                   |
+| -------- | -------------------------------------------- |
+| general  | class, id, text, title                       |
+| link     | href                                         |
+| media    | src, alt                                     |
+| display  | hidden, show                                 |
+| input    | value, checked, selected, disabled, readonly |
+| dialog   | open                                         |
+| form     | action, onsubmit                             |
+| event    | onclick                                      |
 
 ## Quick Example with CDN
 
@@ -128,7 +137,7 @@ If the newly fetched data is different from the cached data, the callback will b
 
 | Format         | File Size |
 | -------------- | --------- |
-| base.js        | 4.8 KB    |
+| base.js        | 4.9 KB    |
 | base.min.js    | 2.4 KB    |
 | base.min.js.gz | 1.2 KB    |
 
