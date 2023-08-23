@@ -30,7 +30,7 @@ Lightweight and minimal HTML template helpers powered by native DOM
 (For script tag with exact version and integrity checksum, see [below section](#get-started-with-cdn))
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/data-template@1.6/base.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/data-template@1.7/base.js"></script>
 
 <header id="header" data-template="header.html"></header>
 
