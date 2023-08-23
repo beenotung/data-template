@@ -161,7 +161,7 @@ Drop below line in your html:
 
 ```html
 <script
-  src="https://cdn.jsdelivr.net/npm/data-template@1.7.0/base.js"
+  src="https://cdn.jsdelivr.net/npm/data-template@1.7.1/base.js"
   crossorigin="anonymous"
   integrity="sha384-wxF2rFDkM0sJJWkyWyveJPAB+O99FWdpRgWEMuxrzbDXzrwIpNqiLr/b4y2w1pVU"
 ></script>
@@ -171,7 +171,7 @@ Or use the minified version:
 
 ```html
 <script
-  src="https://cdn.jsdelivr.net/npm/data-template@1.7.0/base.min.js"
+  src="https://cdn.jsdelivr.net/npm/data-template@1.7.1/base.min.js"
   crossorigin="anonymous"
   integrity="sha384-qBas1VJGwAQtc5/H8aFMuRcv+hfJi6TPNB7cCWE/R4X6By+oiWpr3QorOBYZX+Ac"
 ></script>
