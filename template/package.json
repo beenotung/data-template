@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "ts-node-dev server/main.ts",
-    "start": "NODE_ENV=production node dist/main.js",
+    "start": "ts-node-dev server/main.ts",
+    "prod": "NODE_ENV=production node dist/main.js",
     "test": "tsc --noEmit",
     "minify": "esbuild public/base.js --minify > public/base.min.js",
     "tsc": "tsc -p .",
