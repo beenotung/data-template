@@ -3,6 +3,8 @@
 Lightweight and minimal HTML template helpers powered by native DOM
 
 [![npm Package Version](https://img.shields.io/npm/v/data-template)](https://www.npmjs.com/package/data-template)
+[![Minified Package Size](https://img.shields.io/bundlephobia/min/data-template)](https://bundlephobia.com/package/data-template)
+[![Minified and Gzipped Package Size](https://img.shields.io/bundlephobia/minzip/data-template)](https://bundlephobia.com/package/data-template)
 
 ## Features
 
