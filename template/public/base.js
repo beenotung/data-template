@@ -65,7 +65,7 @@
       'onsubmit',
       'onclick',
     ])
-      apply(attr, (e, v) => e[attr] = v)
+      apply(attr, (e, v) => v && (e[attr] = v))
   }
 
   w.renderTemplate = async (host, binds = {}) => {
