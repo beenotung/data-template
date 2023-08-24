@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array Value Demo</title>
+    <style>
+      ul li + p {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Array Value Demo</h1>
+    <main id="main" data-template="list" data-bind="lists"></main>
+    <template data-name="list">
+      <h2 data-text="title"></h2>
+      <ul>
+        <li data-text="items"></li>
+        <p>No items</p>
+      </ul>
+    </template>
+    <script src="base.js"></script>
+    <script>
+      // multiple class names separated by spaces are supported
+      let lists = [
+        { title: 'list 1', items: [1, 2, 3] },
+        { title: 'list 2', items: [] },
+        { title: 'list 3', items: [1, 3] },
+        { title: 'list 4', items: [3] },
+      ]
+      renderTemplate(main, { lists })
+    </script>
+  </body>
+</html>
