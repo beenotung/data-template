@@ -1,14 +1,20 @@
 import express from 'express'
 import { print } from 'listening-on'
-import path from 'path'
+import { join } from 'path'
 import { env } from './env'
 import { checkbox, object, string } from 'cast.ts'
+import { readFileSync, readdirSync } from 'fs'
 
 let app = express()
 
-if (process.env.NODE_ENV == 'production') {
+if (
+  env.NODE_ENV == 'production' &&
+  readdirSync('public').includes('base.min.js')
+) {
+  let base_min_js = readFileSync(join('public', 'base.min.js'))
   app.get('/base.js', (req, res) => {
-    res.sendFile(path.resolve(path.join('public', 'base.min.js')))
+    res.contentType('text/javascript')
+    res.end(base_min_js)
   })
 }
 
