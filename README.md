@@ -16,7 +16,7 @@ Lightweight and minimal HTML template helpers powered by native DOM
 
 | category | attributes                                   |
 | -------- | -------------------------------------------- |
-| general  | class, id, text, title                       |
+| general  | text, class, id, title                       |
 | link     | href                                         |
 | media    | src, alt                                     |
 | display  | hidden, show                                 |

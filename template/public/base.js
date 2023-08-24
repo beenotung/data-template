@@ -48,12 +48,12 @@
         e.remove()
       })
     }
+    apply('text', (e, v) => e.textContent = v)
     apply('class', (e, v, k) => v == true ? e.classList.add(k) : v && e.classList.add(...v.split(' ')))
     apply('show', (e, v) => e.hidden = !v)
     apply('readonly', (e, v) => e.readOnly = !!v)
     for (let attr of ['open', 'checked', 'disabled', 'selected', 'hidden'])
       apply(attr, (e, v) => e[attr] = !!v)
-    apply('text', (e, v) => e.textContent = v)
     for (let attr of [
       'id',
       'title',
