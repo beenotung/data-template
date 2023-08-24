@@ -151,7 +151,7 @@ If the newly fetched data is different from the cached data, the callback will b
 
 | Format         | File Size |
 | -------------- | --------- |
-| base.js        | 5.1 KB    |
+| base.js        | 4.8 KB    |
 | base.min.js    | 2.6 KB    |
 | base.min.js.gz | 1.3 KB    |
 

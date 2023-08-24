@@ -32,48 +32,15 @@
     })
 
   w.renderData = (container, values) => {
-    for (let attr of [
-      'class',
-      'id',
-      'text',
-      'title',
-      'href',
-      'src',
-      'alt',
-      'hidden',
-      'show',
-      'value',
-      'checked',
-      'selected',
-      'disabled',
-      'readonly',
-      'open',
-      'action',
-      'onsubmit',
-      'onclick',
-    ]) {
+    let apply = (attr, f) => {
       container.querySelectorAll(`[data-${attr}]`).forEach(e => {
         let key = e.dataset[attr]
-        if (!(key in values)) return attr == 'show' && (e.hidden = true)
         let value = values[key]
-        let apply = (e, v) => {
-          attr == 'class'
-            ? v == true
-              ? e.classList.add(key)
-              : v && e.classList.add(...v.split(' '))
-            : attr == 'show'
-            ? (e.hidden = !v)
-            : attr == 'readonly'
-            ? (e.readOnly = !!v)
-            : attr == 'open' || attr == 'checked' || attr == 'selected'
-            ? (e[attr] = !!v)
-            : (e[attr == 'text' ? 'textContent' : attr] = v)
-        }
-        if (!Array.isArray(value)) return apply(e, value)
+        if (!Array.isArray(value)) return f(e, value, key)
         let last = e
         value.forEach(value => {
           let node = e.cloneNode(true)
-          apply(node, value)
+          f(node, value, key)
           value && typeof value == 'object' && renderData(node, value)
           last.insertAdjacentElement('afterend', node)
           last = node
@@ -81,6 +48,24 @@
         e.remove()
       })
     }
+    apply('class', (e, v, k) => v == true ? e.classList.add(k) : v && e.classList.add(...v.split(' ')))
+    apply('show', (e, v) => e.hidden = !v)
+    apply('readonly', (e, v) => e.readOnly = !!v)
+    for (let attr of ['open', 'checked', 'disabled', 'selected', 'hidden'])
+      apply(attr, (e, v) => e[attr] = !!v)
+    apply('text', (e, v) => e.textContent = v)
+    for (let attr of [
+      'id',
+      'title',
+      'href',
+      'src',
+      'alt',
+      'value',
+      'action',
+      'onsubmit',
+      'onclick',
+    ])
+      apply(attr, (e, v, k) => e[k] = v)
   }
 
   w.renderTemplate = async (host, binds = {}) => {
