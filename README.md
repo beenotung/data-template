@@ -161,9 +161,9 @@ Drop below line in your html:
 
 ```html
 <script
-  src="https://cdn.jsdelivr.net/npm/data-template@1.7.1/base.js"
+  src="https://cdn.jsdelivr.net/npm/data-template@1.7.2/base.js"
   crossorigin="anonymous"
-  integrity="sha384-wxF2rFDkM0sJJWkyWyveJPAB+O99FWdpRgWEMuxrzbDXzrwIpNqiLr/b4y2w1pVU"
+  integrity="sha384-5x9s9oiI513LT0iHmHf3Z3Lc6fZ7l5gi40t9WUeV1dQFk1xPm65FP8XdD6MUmAap"
 ></script>
 ```
 
@@ -171,9 +171,9 @@ Or use the minified version:
 
 ```html
 <script
-  src="https://cdn.jsdelivr.net/npm/data-template@1.7.1/base.min.js"
+  src="https://cdn.jsdelivr.net/npm/data-template@1.7.2/base.min.js"
   crossorigin="anonymous"
-  integrity="sha384-qBas1VJGwAQtc5/H8aFMuRcv+hfJi6TPNB7cCWE/R4X6By+oiWpr3QorOBYZX+Ac"
+  integrity="sha384-BCQkT3YO5JxRfqMxFBIajJxwnBIxkdqZ79it2BFZUnjM/taXz1saxmg1Mf9EyLzB"
 ></script>
 ```
 
