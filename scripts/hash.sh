@@ -4,7 +4,7 @@ set -e
 set -o pipefail
 hash=$(shasum -b -a 384 $1 | awk '{print $1}' | xxd -r -p | base64)
 echo "<script
-  src=\"https://cdn.jsdelivr.net/npm/data-template@1.7.2/$1\"
+  src=\"https://cdn.jsdelivr.net/npm/data-template@1.7.3/$1\"
   crossorigin=\"anonymous\"
   integrity=\"sha384-$hash\"
 ></script>"
