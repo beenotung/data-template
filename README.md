@@ -6,6 +6,8 @@ Lightweight and minimal HTML template helpers powered by native DOM
 [![Minified Package Size](https://img.shields.io/bundlephobia/min/data-template)](https://bundlephobia.com/package/data-template)
 [![Minified and Gzipped Package Size](https://img.shields.io/bundlephobia/minzip/data-template)](https://bundlephobia.com/package/data-template)
 
+Server-side-rendering (SSR) mode available by [node-data-template](https://github.com/beenotung/node-data-template)
+
 ## Features
 
 - [x] apply data into dom based on dataset (`data-*`) attributes
