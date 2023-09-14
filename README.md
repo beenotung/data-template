@@ -8,6 +8,44 @@ Lightweight and minimal HTML template helpers powered by native DOM
 
 Server-side-rendering (SSR) mode available via [node-data-template](https://github.com/beenotung/node-data-template)
 
+## Installation (with CDN)
+
+Drop below line in your html with automatic patch updates:
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/data-template@1.7/base.js"></script>
+```
+
+Or specify the exact version with integrity protection:
+
+```html
+<script
+  src="https://cdn.jsdelivr.net/npm/data-template@1.7.5/base.js"
+  crossorigin="anonymous"
+  integrity="sha384-xtazI7No2BH7EQB/Dd6tPZDrzyrITDqmeimLKEidsG+eMKDtRZOsvC465yWz/6cA"
+></script>
+```
+
+You can use the minified version as well:
+
+```html
+<script
+  src="https://cdn.jsdelivr.net/npm/data-template@1.7.5/base.min.js"
+  crossorigin="anonymous"
+  integrity="sha384-oSjdZEx5qKq1NUzd4tFn+fR01oGuLPqqpCJuof7aOwdHJVak0cKGuF3G5jSYOnzh"
+></script>
+```
+
+## Get Started (with template project)
+
+For new project without existing files, you can use the `data-template` cli to setup a simple project from template.
+
+```bash
+npx data-template my-app
+cd my-app
+# then see the guides in the console output and README.md file
+```
+
 ## Features
 
 - [x] apply data into dom based on dataset (`data-*`) attributes
@@ -31,7 +69,7 @@ Server-side-rendering (SSR) mode available via [node-data-template](https://gith
 
 ## Quick Example with CDN
 
-(For script tag with exact version and integrity checksum, see [below section](#get-started-with-cdn))
+(For script tag with exact version and integrity checksum, see [above section](#installation-with-cdn))
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/data-template@1.7/base.js"></script>
@@ -158,36 +196,6 @@ If the newly fetched data is different from the cached data, the callback will b
 | base.js        | 4.8 KB    |
 | base.min.js    | 2.6 KB    |
 | base.min.js.gz | 1.3 KB    |
-
-## Get Started (with CDN)
-
-Drop below line in your html:
-
-```html
-<script
-  src="https://cdn.jsdelivr.net/npm/data-template@1.7.5/base.js"
-  crossorigin="anonymous"
-  integrity="sha384-xtazI7No2BH7EQB/Dd6tPZDrzyrITDqmeimLKEidsG+eMKDtRZOsvC465yWz/6cA"
-></script>
-```
-
-Or use the minified version:
-
-```html
-<script
-  src="https://cdn.jsdelivr.net/npm/data-template@1.7.5/base.min.js"
-  crossorigin="anonymous"
-  integrity="sha384-oSjdZEx5qKq1NUzd4tFn+fR01oGuLPqqpCJuof7aOwdHJVak0cKGuF3G5jSYOnzh"
-></script>
-```
-
-## Get Started (with template project)
-
-```bash
-npx data-template my-app
-cd my-app
-# then see the guides in the console output and README.md file
-```
 
 ## License
 
