@@ -13,16 +13,16 @@ Server-side-rendering (SSR) mode available via [node-data-template](https://gith
 Drop below line in your html with automatic patch updates:
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/data-template@1.7/base.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/data-template@1.8/base.js"></script>
 ```
 
 Or specify the exact version with integrity protection:
 
 ```html
 <script
-  src="https://cdn.jsdelivr.net/npm/data-template@1.7.5/base.js"
+  src="https://cdn.jsdelivr.net/npm/data-template@1.8.0/base.js"
   crossorigin="anonymous"
-  integrity="sha384-xtazI7No2BH7EQB/Dd6tPZDrzyrITDqmeimLKEidsG+eMKDtRZOsvC465yWz/6cA"
+  integrity="sha384-F7uDAgcuOqbOXANrWV5GYMKFjU9YN01JNnR8+/nUlzfZyFvgWlaotz/eCsa+nZK/"
 ></script>
 ```
 
@@ -30,9 +30,9 @@ You can use the minified version as well:
 
 ```html
 <script
-  src="https://cdn.jsdelivr.net/npm/data-template@1.7.5/base.min.js"
+  src="https://cdn.jsdelivr.net/npm/data-template@1.8.0/base.min.js"
   crossorigin="anonymous"
-  integrity="sha384-oSjdZEx5qKq1NUzd4tFn+fR01oGuLPqqpCJuof7aOwdHJVak0cKGuF3G5jSYOnzh"
+  integrity="sha384-mYtXyzXBNDDxB4yfJ8qafMHPpzKEEiMUndzSkOWcvS+tO8dMrdYI/Gl+sXNtr2v5"
 ></script>
 ```
 
