@@ -15,7 +15,7 @@
   let parse = JSON.parse
 
   let useGet = use => (url, options, cb) =>
-    typeof options === 'function'
+    typeof options == 'function'
       ? use(url, {}, options)
       : use(url, options, cb)
 
