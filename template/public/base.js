@@ -163,4 +163,5 @@
   w.postJSON = fetchJSON('POST')
   w.patchJSON = fetchJSON('PATCH')
   w.putJSON = fetchJSON('PUT')
+  w.del = url => fetch(url, { method:'DELETE' })
 })(window)

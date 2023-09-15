@@ -171,6 +171,9 @@ function uploadForm(event_or_form): Promise<Response>
 function postJSON(url, body): Promise<Response>
 function patchJSON(url, body): Promise<Response>
 function putJSON(url, body): Promise<Response>
+
+// send ajax request with DELETE method
+function del(url): Promise<Response>
 ```
 
 For the `getText()` and `getJSON()` functions, the `options` and `cb` arguments are optional.
@@ -193,7 +196,7 @@ If the newly fetched data is different from the cached data, the callback will b
 
 | Format         | File Size |
 | -------------- | --------- |
-| base.js        | 4.8 KB    |
+| base.js        | 4.9 KB    |
 | base.min.js    | 2.6 KB    |
 | base.min.js.gz | 1.3 KB    |
 
