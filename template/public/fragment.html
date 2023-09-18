@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="main" data-template="rows" data-bind="data"></div>
+    <template data-name="rows">
+      <div class="title"><span data-text="n"></span> records</div>
+      <table>
+        <template data-value="groups">
+          <thead>
+            <tr>
+              <td data-text="title"></td>
+            </tr>
+            <tr>
+              <td data-text="headings"></td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr data-value="rows">
+              <td data-text="id"></td>
+              <td data-text="value"></td>
+            </tr>
+          </tbody>
+        </template>
+      </table>
+    </template>
+    <script src="base.js"></script>
+    <script>
+      renderTemplate(main, {
+        data: {
+          n: 5,
+          groups: [
+            {
+              title: 'Part 1',
+              headings: ['id', 'username'],
+              rows: [
+                { id: 1, value: 'alice' },
+                { id: 2, value: 'bob' },
+              ],
+              total: 2,
+            },
+            {
+              title: 'Part 2',
+              headings: ['id', 'time'],
+              rows: [
+                { id: 1, value: '1:00' },
+                { id: 2, value: '2:00' },
+                { id: 3, value: '3:00' },
+              ],
+              total: 3,
+            },
+          ],
+        },
+      })
+    </script>
+  </body>
+</html>

@@ -39,11 +39,15 @@
         if (!Array.isArray(value)) return f(e, value, key)
         let last = e
         value.forEach(value => {
-          let node = e.cloneNode(true)
+          let node = (e.tagName == 'TEMPLATE' ? e.content : e).cloneNode(true)
           f(node, value, key)
           value && typeof value == 'object' && renderData(node, value)
-          last.insertAdjacentElement('afterend', node)
-          last = node
+          if (e.tagName != 'TEMPLATE')
+            return last.insertAdjacentElement('afterend', node), last = node
+          for (let child of node.childNodes)
+            child.nodeType == Node.TEXT_NODE
+              ? last.insertAdjacentText('afterend', child.textContent)
+              : (last.insertAdjacentElement('afterend', child), last = child)
         })
         e.remove()
       })
