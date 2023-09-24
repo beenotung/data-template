@@ -38,7 +38,7 @@
         value = values[key],
         t = e.tagName == 'TEMPLATE',
         last = e
-        if (t && value && attr == 'show') value = [1]
+        if (t && value && (attr == 'show' || attr == 'if')) value = [1]
         if (!Array.isArray(value)) return f(e, value, key)
         value.forEach(value => {
           let node = (t ? e.content : e).cloneNode(true)
@@ -57,6 +57,7 @@
     apply('text', (e, v) => e.textContent = v)
     apply('class', (e, v, k) => v == true ? e.classList.add(k) : v && e.classList.add(...v.split(' ')))
     apply('show', (e, v) => e.hidden = !v)
+    apply('if', (e, v) => v || e.remove())
     apply('readonly', (e, v) => e.readOnly = !!v)
     for (let attr of ['open', 'checked', 'disabled', 'selected', 'hidden'])
       apply(attr, (e, v) => e[attr] = !!v)

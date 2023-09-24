@@ -68,7 +68,7 @@ cd my-app
 | general  | text, class, id, title                       |
 | link     | href                                         |
 | media    | src, alt                                     |
-| display  | hidden, show                                 |
+| display  | hidden, show, if                             |
 | input    | value, checked, selected, disabled, readonly |
 | dialog   | open                                         |
 | form     | action, onsubmit                             |
@@ -203,8 +203,8 @@ If the newly fetched data is different from the cached data, the callback will b
 
 | Format         | File Size |
 | -------------- | --------- |
-| base.js        | 5.2 KB    |
-| base.min.js    | 2.8 KB    |
+| base.js        | 5.3 KB    |
+| base.min.js    | 2.9 KB    |
 | base.min.js.gz | 1.4 KB    |
 
 ## License
