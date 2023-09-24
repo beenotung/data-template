@@ -50,6 +50,7 @@ cd my-app
 
 - [x] apply data into dom based on dataset (`data-*`) attributes
 - [x] auto repeat elements if the value is an array
+- [x] support fragments with [nested template](./template/public/examples/fragment.html#:L14)
 - [x] fetch and cache html template and api response with localStorage
 - [x] helper functions to do ajax and input format (date/time)
 - [x] lightweight, [1KB minified and gzipped](#size)
