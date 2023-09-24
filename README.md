@@ -13,7 +13,7 @@ Server-side-rendering (SSR) mode available via [node-data-template](https://gith
 Drop below line in your html with automatic patch updates:
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/data-template@1.9/base.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/data-template@1.10/base.js"></script>
 ```
 
 <details>
@@ -21,9 +21,9 @@ Drop below line in your html with automatic patch updates:
 
 ```html
 <script
-  src="https://cdn.jsdelivr.net/npm/data-template@1.9.0/base.js"
+  src="https://cdn.jsdelivr.net/npm/data-template@1.10.0/base.js"
   crossorigin="anonymous"
-  integrity="sha384-1gMyCjuUZuAK5A5/vdDAPcNc2yxakVkLj4kE1R2ZDrnQK5QF4OZwCnnsuDgOg1xG"
+  integrity="sha384-jhPgb3RNa4RoePs1hgeurg2nwf5pjyNrDh66AkKlnpE3vumnnC3dqFzXGXJRQlcZ"
 ></script>
 ```
 
@@ -34,9 +34,9 @@ Drop below line in your html with automatic patch updates:
 
 ```html
 <script
-  src="https://cdn.jsdelivr.net/npm/data-template@1.9.0/base.min.js"
+  src="https://cdn.jsdelivr.net/npm/data-template@1.10.0/base.min.js"
   crossorigin="anonymous"
-  integrity="sha384-7fpb1UmNcAt2ruWguph37nkn+kWdgg68UAV4r1LFlSfhSvOvesfW+6r+1jFoc2I2"
+  integrity="sha384-Ev/Cu5tJimRsEiV/iSWK44rr7o+L0pOBwH00nqaD0qNay5J+XBK9hVEB7UpySHkT"
 ></script>
 ```
 
