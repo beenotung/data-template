@@ -16,7 +16,8 @@ Drop below line in your html with automatic patch updates:
 <script src="https://cdn.jsdelivr.net/npm/data-template@1.8/base.js"></script>
 ```
 
-Or specify the exact version with integrity protection:
+<details>
+<summary>Or specify the exact version with integrity protection:</summary>
 
 ```html
 <script
@@ -26,7 +27,10 @@ Or specify the exact version with integrity protection:
 ></script>
 ```
 
-You can use the minified version as well:
+</details>
+
+<details>
+<summary>You can use the minified version as well:</summary>
 
 ```html
 <script
@@ -35,6 +39,8 @@ You can use the minified version as well:
   integrity="sha384-mYtXyzXBNDDxB4yfJ8qafMHPpzKEEiMUndzSkOWcvS+tO8dMrdYI/Gl+sXNtr2v5"
 ></script>
 ```
+
+</details>
 
 ## Get Started (with template project)
 
