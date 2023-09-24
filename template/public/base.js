@@ -39,10 +39,11 @@
         if (!Array.isArray(value)) return f(e, value, key)
         let last = e
         value.forEach(value => {
-          let node = (e.tagName == 'TEMPLATE' ? e.content : e).cloneNode(true)
+          let t = e.tagName == 'TEMPLATE'
+          let node = (t ? e.content : e).cloneNode(true)
           f(node, value, key)
           value && typeof value == 'object' && renderData(node, value)
-          if (e.tagName != 'TEMPLATE')
+          if (!t)
             return last.insertAdjacentElement('afterend', node), last = node
           for (let child of node.childNodes)
             child.nodeType == Node.TEXT_NODE
