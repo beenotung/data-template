@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>data-show examples</title>
+    <style>
+      table {
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        border: 1px solid black;
+        padding: 0.25rem;
+      }
+      [hidden] {
+        display: block;
+      }
+      [hidden]::after {
+        content: ' (hidden, not removed)';
+      }
+    </style>
+  </head>
+  <body>
+    <div id="main" data-template="main" data-bind="data"></div>
+    <template data-name="main">
+      <table>
+        <thead>
+          <tr>
+            <th>host</th>
+            <th>data-show</th>
+            <th>output</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>span element</td>
+            <td>off</td>
+            <td><span data-show="off">text</span></td>
+          </tr>
+          <tr>
+            <td>span element</td>
+            <td>on</td>
+            <td><span data-show="on">text</span></td>
+          </tr>
+          <tr>
+            <td>fragment template</td>
+            <td>off</td>
+            <td><template data-show="off">text</template></td>
+          </tr>
+          <tr>
+            <td>fragment template</td>
+            <td>on</td>
+            <td><template data-show="on">text</template></td>
+          </tr>
+        </tbody>
+      </table>
+    </template>
+    <script src="base.js"></script>
+    <script>
+      renderTemplate(main, {
+        data: {
+          on: true,
+          off: false,
+        },
+      })
+    </script>
+  </body>
+</html>

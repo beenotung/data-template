@@ -34,12 +34,13 @@
   w.renderData = (container, values) => {
     let apply = (attr, f) => {
       container.querySelectorAll(`[data-${attr}]`).forEach(e => {
-        let key = e.dataset[attr]
-        let value = values[key]
+        let key = e.dataset[attr],
+        value = values[key],
+        t = e.tagName == 'TEMPLATE',
+        last = e
+        if (t && value && attr == 'show') value = [1]
         if (!Array.isArray(value)) return f(e, value, key)
-        let last = e
         value.forEach(value => {
-          let t = e.tagName == 'TEMPLATE'
           let node = (t ? e.content : e).cloneNode(true)
           f(node, value, key)
           value && typeof value == 'object' && renderData(node, value)
