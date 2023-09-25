@@ -21,9 +21,9 @@ Drop below line in your html with automatic patch updates:
 
 ```html
 <script
-  src="https://cdn.jsdelivr.net/npm/data-template@1.10.0/base.js"
+  src="https://cdn.jsdelivr.net/npm/data-template@1.10.1/base.js"
   crossorigin="anonymous"
-  integrity="sha384-jhPgb3RNa4RoePs1hgeurg2nwf5pjyNrDh66AkKlnpE3vumnnC3dqFzXGXJRQlcZ"
+  integrity="sha384-i35RjawhK9lVyGUZOl8bMw50PRHWqwOuSPnMCq69WytKJ5Tqx9FhZ4SRIjQfp6yZ"
 ></script>
 ```
 
@@ -34,9 +34,9 @@ Drop below line in your html with automatic patch updates:
 
 ```html
 <script
-  src="https://cdn.jsdelivr.net/npm/data-template@1.10.0/base.min.js"
+  src="https://cdn.jsdelivr.net/npm/data-template@1.10.1/base.min.js"
   crossorigin="anonymous"
-  integrity="sha384-Ev/Cu5tJimRsEiV/iSWK44rr7o+L0pOBwH00nqaD0qNay5J+XBK9hVEB7UpySHkT"
+  integrity="sha384-HdiWx6gZdhakPcyhM4tZ1XImMYkFBV5QPz+F+e3J6gJub1djlJk8DbWTd8tub0Ib"
 ></script>
 ```
 
