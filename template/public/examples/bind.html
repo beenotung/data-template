@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>bind demo</title>
+    <style>
+      h1 {
+        font-size: 1.25rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h1>renderData without bind</h1>
+      <div id="main0">
+        <div>title: <span data-text="title"></span></div>
+      </div>
+    </div>
+    <div>
+      <h1>renderTemplate with bind</h1>
+      <div id="main1" data-template="main" data-bind="data"></div>
+    </div>
+    <div>
+      <h1>renderTemplate without bind</h1>
+      <div id="main2" data-template="main"></div>
+    </div>
+    <template data-name="main">
+      <div>title: <span data-text="title"></span></div>
+    </template>
+    <script src="base.js"></script>
+    <script>
+      let json = {
+        data: { title: 'Hello inner world' },
+        title: 'Hello outer world',
+      }
+      renderData(main0, json)
+      renderTemplate(main1, json)
+      renderTemplate(main2, json)
+    </script>
+  </body>
+</html>

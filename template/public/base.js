@@ -90,7 +90,7 @@
       template ? next() : console.error(t, `not found:`, name)
     }
     function next() {
-      let values = binds[host.dataset.bind]
+      let values = binds[host.dataset.bind] || binds
       host.textContent = ''
       Array.isArray(values)
         ? values.forEach(values => bindTemplate(host, template, values))
