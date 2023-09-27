@@ -77,7 +77,9 @@
 
   w.renderTemplate = async (host, binds = {}) => {
     let name = host.dataset.template
+    let values = binds[host.dataset.bind] || binds
     let template
+    host.textContent = ''
     if (name.endsWith('.html')) {
       template = document.createElement(t)
       getText(name, html => {
@@ -90,8 +92,6 @@
       template ? next() : console.error(t, `not found:`, name)
     }
     function next() {
-      let values = binds[host.dataset.bind] || binds
-      host.textContent = ''
       Array.isArray(values)
         ? values.forEach(values => bindTemplate(host, template, values))
         : bindTemplate(host, template, values)
