@@ -103,6 +103,13 @@
       .querySelectorAll(`[data-${t}]`)
       .forEach(host => renderTemplate(host, binds))
 
+  w.renderOptions = (select, options) => {
+    for (let option of options)
+      select.appendChild(typeof option == 'string'
+        ? new Option(option)
+        : new Option(option.text, option.value))
+  }
+
   w.fillForm = (form, o) => {
     let e
     for (let k in o) (e = form[k]) && (e.value = o[k])

@@ -141,6 +141,13 @@ function scanTemplates(rootElement, binds);
 
 // populate the form using values from the object
 function fillForm(form, object);
+
+// populate the options for select and datalist
+/**
+ * @param element: select or datalist
+ * @param options: string[] or Array<{value,text}>
+*/
+function renderOptions(element, options);
 ```
 
 **Format Functions**:
@@ -203,9 +210,9 @@ If the newly fetched data is different from the cached data, the callback will b
 
 | Format         | File Size |
 | -------------- | --------- |
-| base.js        | 5.3 KB    |
-| base.min.js    | 2.9 KB    |
-| base.min.js.gz | 1.4 KB    |
+| base.js        | 5.5 KB    |
+| base.min.js    | 3.0 KB    |
+| base.min.js.gz | 1.5 KB    |
 
 ## License
 

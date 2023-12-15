@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rendering Select Options</title>
+  </head>
+  <body>
+    <form id="demoForm">
+      <label>
+        District:
+        <select name="district"></select>
+      </label>
+      <label>
+        Color:
+        <select name="color"></select>
+      </label>
+      <label>
+        Name: <input name="name" list="nameList" />
+        <datalist id="nameList"></datalist>
+      </label>
+    </form>
+    <script src="/base.js"></script>
+    <script>
+      let options = {
+        district: [
+          { id: 1, name: 'Kowloon' },
+          { id: 2, name: 'Hong Kong Island' },
+          { id: 3, name: 'New Territory' },
+        ],
+        color: ['red', 'green', 'blue'],
+        name: ['alice', 'bob', 'charlie'],
+      }
+      renderOptions(
+        demoForm.district,
+        options.district.map(row => ({ value: row.id, text: row.name })),
+      )
+      renderOptions(demoForm.color, options.color)
+      renderOptions(nameList, options.name)
+    </script>
+  </body>
+</html>
