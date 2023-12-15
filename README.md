@@ -72,7 +72,7 @@ cd my-app
 | input    | value, checked, selected, disabled, readonly |
 | dialog   | open                                         |
 | form     | action, onsubmit                             |
-| event    | onclick                                      |
+| event    | onclick, oninput, onchange                   |
 
 ## Quick Example with CDN
 

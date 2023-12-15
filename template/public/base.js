@@ -71,6 +71,8 @@
       'action',
       'onsubmit',
       'onclick',
+      'oninput',
+      'onchange',
     ])
       apply(attr, (e, v) => v && (e[attr] = v))
   }
